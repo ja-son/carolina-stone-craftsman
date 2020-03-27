@@ -60,6 +60,10 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-plugin-exclude',
+      options: { paths: ['/products/shape-*'] }
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,

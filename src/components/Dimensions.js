@@ -4,12 +4,14 @@ import { Link, graphql, StaticQuery, useStaticQuery } from 'gatsby'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 export default class Dimensions extends React.Component {
+  componentDidMount() {
+    document.getElementById('backBtn').style.display = 'block';
+  }
+
   render() {
     if(this.props.currentStep !== 2) {
       return null
     }
-
-    document.getElementById('backBtn').style.display = 'block';
 
     const { data } = this.props
 

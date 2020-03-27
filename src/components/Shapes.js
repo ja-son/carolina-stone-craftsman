@@ -4,14 +4,15 @@ import PreviewCompatibleImage from './PreviewCompatibleImage'
 
 
 class Shapes extends React.Component {
-  render() {
-    if(this.props.currentStep !== 1) {
-      return null
-    }
-    
+  componentDidMount() {
     let backBtnEl = document.getElementById('backBtn')
     if(backBtnEl !== null) {
       backBtnEl.style.display = 'none'
+    }
+  }
+  render() {
+    if(this.props.currentStep !== 1) {
+      return null
     }
 
     const { data } = this.props
