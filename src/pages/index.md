@@ -1,21 +1,16 @@
 ---
 templateKey: index-page
-title: Great coffee with a conscience
-image: /img/home-jumbotron.jpg
-heading: Great coffee with a conscience
-subheading: Support sustainable farming while enjoying a cup
+title: Take us for granite!
+image: /img/home-jumbotron2.jpg
+heading: Experienced and Creative Kitchen Designers
+subheading: Look to Carolina Stone Craftsman for all of your residential and commercial countertop needs.
+phone: 803-408-3456
 mainpitch:
-  title: Why Kaldi
+  title: Why Carolina Stone Craftsman
   description: >
-    Kaldi is the coffee store for everyone who believes that great coffee
-    shouldn't just taste good, it should do good too. We source all of our beans
-    directly from small scale sustainable farmers and make sure part of the
-    profits are reinvested in their communities.
+    Our experienced Stone craftsmen are highly trained and work in teams to guide you through the process from design, fabrication, and installation.  Whether it be for new construction or a remodel we provide the latest techniques and professional staff to make your project as stress-free as possible.
 description: >-
-  Kaldi is the ultimate spot for coffee lovers who want to learn about their
-  java’s origin and support the farmers that grew it. We take coffee production,
-  roasting and brewing seriously and we’re glad to pass that knowledge to
-  anyone.
+  The gentleman who brought you high quality stone work at Ethen Del Priore Stonecraftsman LLC, has purchased the business formerly known as Rock Ye Tops and reopened as Carolina Stone Craftsman. Ethen Del Priore Stonecraftsman and Rock Ye Tops have serviced the greater Columbia area and the state of South Carolina for over 20 years. Although the name has changed, the core values and quality workmanship remain.  At Carolina Stone Craftsman our team of dedicated professionals strive to provide high quality work with the personal attention that you expect from a family owned and operated business.
 intro:
   blurbs:
     - image: /img/coffee.png

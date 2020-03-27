@@ -1,6 +1,8 @@
 import React from 'react'
 import { navigate } from 'gatsby-link'
 import Layout from '../../components/Layout'
+import 'react-phone-number-input/style.css'
+import PhoneInput from 'react-phone-number-input/input'
 
 function encode(data) {
   return Object.keys(data)
@@ -16,6 +18,10 @@ export default class Index extends React.Component {
 
   handleChange = e => {
     this.setState({ [e.target.name]: e.target.value })
+  }
+
+  handlePhoneChange = e => {
+    
   }
 
   handleSubmit = e => {
@@ -36,10 +42,18 @@ export default class Index extends React.Component {
   render() {
     return (
       <Layout>
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <h1 className="title">Schedule Consultation</h1>
+          </div>
+        </section>
         <section className="section">
           <div className="container">
             <div className="content">
-              <h1>Contact</h1>
+              <p>
+                Please fill the form out below to schedule your free consultation with
+                one of our professionals.
+              </p>
               <form
                 name="contact"
                 method="post"
@@ -87,17 +101,46 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
-                  <label className="label" htmlFor={'message'}>
-                    Message
+                  <label className="label" htmlFor={'phone'}>
+                    Phone
                   </label>
                   <div className="control">
-                    <textarea
-                      className="textarea"
-                      name={'message'}
-                      onChange={this.handleChange}
-                      id={'message'}
+                    <PhoneInput
+                      className="input"
+                      country="US"
+                      name={'phone'}
+                      onChange={this.handlePhoneChange}
+                      id={'phone'}
                       required={true}
                     />
+                  </div>
+                </div>
+                <div className="field">
+                  <label className="label" htmlFor={'bestTime'}>
+                    Best time to contact
+                  </label>
+                  <div className="control">
+                    <label className="radio">
+                      <input type="radio" name="{bestTime}"
+                      style={{ 
+                        margin: "6px"
+                      }}/>
+                      Morning
+                    </label>
+                    <label className="radio">
+                      <input type="radio" name="{bestTime}"
+                      style={{
+                        margin: "6px"
+                      }}/>
+                      Day
+                    </label>
+                    <label className="radio">
+                      <input type="radio" name="{bestTime}"
+                      style={{
+                        margin: "6px"
+                      }}/>
+                      Evening
+                    </label>
                   </div>
                 </div>
                 <div className="field">

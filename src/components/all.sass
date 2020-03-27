@@ -2,11 +2,12 @@
 
 // Config vars
 // Kaldi logo brand color: #FD461E
-$kaldi-red: #D64000
+$kaldi-red: #48c774
 $kaldi-red-invert: #fff
 
 $primary: $kaldi-red
 $primary-invert: $kaldi-red-invert
+$secondary: #48c774
 $body-color: #333
 $black: #2b2523
 
@@ -31,7 +32,7 @@ $black: #2b2523
 // Helper Classes
 .full-width-image-container
   width: 100vw
-  height: 400px
+  height: 350px
   position: relative
   left: 50%
   right: 50%
@@ -44,7 +45,7 @@ $black: #2b2523
 
 .full-width-image
     width: 100vw
-    height: 400px
+    height: 350px
     background-size: cover
     background-position: bottom
     display: flex
@@ -80,6 +81,9 @@ $black: #2b2523
   fill: currentColor
 .navbar-brand .navbar-item.logo
   padding: 0 1rem
+.navbar-brand .navbar-item.phone a
+  color: $secondary
+  text-shadow: 1px 1px #333333
 footer.footer
   padding: 3rem 0rem 0rem
   background-color: transparent
@@ -123,8 +127,7 @@ $menu-label-color: $white-ter
   margin: 0 1.5em 0 0;
 
 
-@import "~bulma"
-
+@import "~bulma/bulma.sass"
 
 // responsiveness
 +tablet-only
@@ -138,3 +141,15 @@ $menu-label-color: $white-ter
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;
+
+.section
+  padding: 1rem 1.5rem
+
+.radioImage > input[type=radio]
+  opacity: 0
+
+.radioImage img
+  cursor: pointer
+
+.radioImage > input[type=radio]:checked + div img
+  border: 2px solid $primary
