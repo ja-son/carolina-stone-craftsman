@@ -67,15 +67,16 @@ export const IndexPageTemplate = ({
           display: "flex",
           height: "100px",
           justifyContent: "flex-end",
-          alignItems: "flex-end"
+          alignItems: "flex-end",
+          flexWrap: "wrap"
         }}>
-        <Link className="button is-large"
+        {/* <Link className="button is-large"
         to="/contact"
         style={{
           display: "flex",
           marginLeft: "20px",
           marginRight: "20px"
-        }}>Schedule Consultation</Link>
+        }}>Schedule Consultation</Link> */}
         <Link className="button is-large is-success"
           to="/products/order"
           style={{

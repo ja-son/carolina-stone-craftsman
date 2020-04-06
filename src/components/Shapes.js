@@ -1,56 +1,62 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
-
+import DrawShape from './DrawShape'
+import ShapeTypes from './ShapeTypes'
 
 class Shapes extends React.Component {
-  componentDidMount() {
-    let backBtnEl = document.getElementById('backBtn')
-    if(backBtnEl !== null) {
-      backBtnEl.style.display = 'none'
-    }
-  }
   render() {
     if(this.props.currentStep !== 1) {
       return null
     }
 
-    const { data } = this.props
-    const { edges: shapes } = data
     return (
-      <div className="columns">
-        {shapes &&
-        shapes.map(({node: shape}) => (
-          <div key={shape.id} className="column">
-            <label className="radioImage">
-              { this.props.currentShape == shape.id
-                ? <input type="radio" name="shape" value={shape.id} onChange={this.props.handleChange} checked />
-                : <input type="radio" name="shape" value={shape.id} onChange={this.props.handleChange} />
-              }
-              <PreviewCompatibleImage
-                imageInfo={{
-                  image: shape.frontmatter.image,
-                  alt: shape.frontmatter.title,
-                  style: {
-                    maxWidth: '200px'
-                  }
-                }}
-              />
-            </label>
+      <div>
+        <section className="hero is-primary">
+          <div className="hero-body">
+            <h1 className="title">Choose the shape you want</h1>
           </div>
-        ))}
-        <div className="column is-10"></div>
+        </section>
+        <section className="section">
+          <div className="columns">
+            <div className="column"></div>
+            <div className="column is-7">
+              <div className="columns is-multiline">
+                { ShapeTypes.shapeTypes.map( (shape) => (
+                  <div className="column" key={shape.apiId}>
+                    <div className={this.props.currentShape === shape.apiId ? "card selected" : "card"} style={{
+                      maxHeight: "200px",
+                      minWidth: "150px"
+                    }}>
+                      <div className="card-image">
+                        <figure className="image" style={{
+                          marginLeft: "auto",
+                          marginRight: "auto",
+                          width: "70%"
+                        }}>
+                          <label className="radioImage">
+                            <input type="radio" name="shape" value={shape.apiId} onChange={this.props.handleChange} checked={this.props.currentShape === shape.apiId} />
+                            <DrawShape id={shape.apiId} rawDef={shape} width={150} height={150} />
+                          </label>
+                        </figure>
+                      </div>
+                      <div className="card-content">
+                        <div className="content">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="column"></div>
+          </div>
+        </section>
       </div>
     )
   }
 }
 
 Shapes.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
   currentStep: PropTypes.number,
   currentShape: PropTypes.string
 }
