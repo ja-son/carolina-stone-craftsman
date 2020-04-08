@@ -24,18 +24,20 @@ class Shapes extends React.Component {
                 { ShapeTypes.shapeTypes.map( (shape) => (
                   <div className="column" key={shape.apiId}>
                     <div className={this.props.currentShape === shape.apiId ? "card selected" : "card"} style={{
-                      maxHeight: "200px",
-                      minWidth: "150px"
+                      maxHeight: "200px"
                     }}>
                       <div className="card-image">
                         <figure className="image" style={{
-                          marginLeft: "auto",
-                          marginRight: "auto",
+                           marginLeft: "auto",
+                           marginRight: "auto",
                           width: "70%"
                         }}>
                           <label className="radioImage">
                             <input type="radio" name="shape" value={shape.apiId} onChange={this.props.handleChange} checked={this.props.currentShape === shape.apiId} />
-                            <DrawShape id={shape.apiId} rawDef={shape} width={150} height={150} />
+                            <DrawShape id={shape.apiId} 
+                              rawDef={shape} 
+                              width={200} height={200} 
+                              />
                           </label>
                         </figure>
                       </div>

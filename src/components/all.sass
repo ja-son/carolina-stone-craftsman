@@ -151,8 +151,14 @@ $menu-label-color: $white-ter
 .radioImage canvas
   cursor: pointer
 
+.radioImage img
+  cursor: pointer
+
 //.radioImage > input[type=radio]:checked + div > canvas
 //  border: 2px solid $primary
+
+.radioImage > input[type=radio]:checked + div
+  border: 3px solid $primary
 
 .card.selected
   border: 2px solid $primary

@@ -6,17 +6,17 @@ import Dimensions from '../../components/Dimensions'
 import Options from '../../components/Options'
 import Edges from '../../components/Edges'
 import ShapeTypes from '../../components/ShapeTypes'
+import Stones from '../../components/Stones'
 
-class OrderPage extends React.Component {
+export default class OrderPage extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
       currentStep: 1,
       shape: '',
-      dimensions: [],
       options: [],
-      edge: '',
-      stone: ''
+      currentEdge: '',
+      currentStone: ''
     }
 
     this.backBtn = React.createRef()
@@ -28,6 +28,7 @@ class OrderPage extends React.Component {
     this.handleShapeGeneration = this.handleShapeGeneration.bind(this)
     this.handleSideTypeChange = this.handleSideTypeChange.bind(this)
     this.handleOptionsChange = this.handleOptionsChange.bind(this)
+    this.handleStoneChange = this.handleStoneChange.bind(this)
   }
 
   handleShapeGeneration = event => {
@@ -59,6 +60,7 @@ class OrderPage extends React.Component {
     })
 
     this.nextBtn.current.style.display =  'block'
+    this.nextBtn.current.scrollIntoView({behavior: "smooth"})
   }
 
   handleLengthChange = event => {
@@ -117,6 +119,10 @@ class OrderPage extends React.Component {
     }
 
     this.setState({
+      [name]: parseInt(value)
+    })
+
+    this.setState({
       options: this.state.options
     })
   }
@@ -128,6 +134,16 @@ class OrderPage extends React.Component {
     })
 
     this.nextBtn.current.style.display =  'block'
+    this.nextBtn.current.scrollIntoView({behavior: "smooth"})
+  }
+
+  handleStoneChange = event => {
+    const {name, value} = event.target
+    this.setState({
+      [name]: value
+    })
+    this.nextBtn.current.style.display =  'block'
+    this.nextBtn.current.scrollIntoView({behavior: "smooth"})
   }
 
   performEdgeValidation() {
@@ -211,7 +227,6 @@ class OrderPage extends React.Component {
           handleChange={this.handleShapeChange} />
 
         <Dimensions 
-          data={this.state.dimensions} 
           currentShape={currentShape}
           currentShapeType={this.state.currentShapeType}
           currentStep={this.state.currentStep}
@@ -220,9 +235,10 @@ class OrderPage extends React.Component {
           onClick={this.handleSideTypeChange} />
 
         <Options
-          data={data.allFile} 
           currentStep={this.state.currentStep}
           currentOptions={this.state.options}
+          overmountQty={this.state.overmountQty}
+          undermountQty={this.state.undermountQty}
           onChange={this.handleOptionsChange}
           />
 
@@ -230,6 +246,12 @@ class OrderPage extends React.Component {
           currentStep={this.state.currentStep}
           currentEdge={this.state.currentEdge}
           onChange={this.handleEdgeTypeChange}
+          />
+
+        <Stones
+          currentStep={this.state.currentStep}
+          currentStone={this.state.currentStone}
+          onChange={this.handleStoneChange}
           />
         <section className="section">
           <div className="container">
@@ -252,23 +274,3 @@ class OrderPage extends React.Component {
     )
   }
 }
-
-export default () => (
-  <StaticQuery
-    query={graphql`
-    query OrderPageQuery {
-      allFile(filter: {name: {regex: "/bowl/"}}) {
-        nodes {
-          childImageSharp {
-            fluid(maxWidth: 250, quality: 100) {
-              ...GatsbyImageSharpFluid
-            }
-          }
-          name
-        }
-      }
-    }
-    `}
-    render={(data, count) => <OrderPage data={data} count={count} />}
-  />
-)

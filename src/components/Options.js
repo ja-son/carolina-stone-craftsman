@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
+import Overmount from '../img/overmount-bowl.jpg'
+import Undermount from '../img/undermount-bowl.jpg'
 
 class Options extends React.Component {
   componentDidMount() {
@@ -11,16 +13,6 @@ class Options extends React.Component {
       return null
     }
 
-    const { nodes } = this.props.data
-    const { currentOptions} = this.props
-
-    nodes.map( image => {
-      currentOptions.map( option => {
-        if(image.name == option.name) {
-          image.qty = option.qty
-        }
-      })
-    })
     return (
       <div>
         <section className="hero is-primary">
@@ -30,24 +22,26 @@ class Options extends React.Component {
           </div>
         </section>
         <section className="section">
-        <div className="columns is-mobile is-centered">
+        <div className="columns is-centered">
           <div className="column"></div>
-            {nodes.map(image => (
-              <div key={image.name} className="column is-narrow">
+
+              <div className="column is-narrow">
                 <div className="card">
                   <div className="card-header">
                     <p className="card-header-title">
-                      {image.name}
+                      Overmount Bowl
                     </p>
                   </div>
                   <div className="card-image">
                     <figure className="image">
                       <PreviewCompatibleImage 
                         imageInfo={{
-                          image: image,
-                          alt: image.name,
+                          image: Overmount,
+                          alt: "overmount bowl",
                           style: {
-                            maxWidth: "275px"
+                            maxWidth: "275px",
+                            marginLeft: "auto",
+                            marginRight: "auto"
                           }
                         }} />
                     </figure>
@@ -55,7 +49,7 @@ class Options extends React.Component {
                   <div className="card-content">
                     <div className="content">
                       <div className="select">
-                        <select name={image.name} onChange={this.props.onChange} value={image.qty}>
+                        <select name="overmountQty" onChange={this.props.onChange} value={this.props.overmountQty} >
                           <option>0</option>
                           <option>1</option>
                           <option>2</option>
@@ -66,7 +60,42 @@ class Options extends React.Component {
                   </div>
                 </div>
               </div>
-            ))}
+              <div className="column is-narrow">
+                <div className="card">
+                  <div className="card-header">
+                    <p className="card-header-title">
+                      Undermount Bowl
+                    </p>
+                  </div>
+                  <div className="card-image">
+                    <figure className="image">
+                      <PreviewCompatibleImage 
+                        imageInfo={{
+                          image: Undermount,
+                          alt: "undermount bowl",
+                          style: {
+                            maxWidth: "275px",
+                            marginLeft: "auto",
+                            marginRight: "auto"
+                          }
+                        }} />
+                    </figure>
+                  </div>
+                  <div className="card-content">
+                    <div className="content">
+                      <div className="select">
+                        <select name="undermountQty" onChange={this.props.onChange} value={this.props.undermountQty}>
+                          <option value={0}>0</option>
+                          <option value={1}>1</option>
+                          <option value={2}>2</option>
+                          <option value={3}>3</option>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
             <div className="column"></div>
         </div>   
         </section>
@@ -76,11 +105,8 @@ class Options extends React.Component {
 }
 
 Options.propTypes = {
-  data: PropTypes.shape({
-    allMarkdownRemark: PropTypes.shape({
-      edges: PropTypes.array,
-    }),
-  }),
+  overmountQty: PropTypes.number,
+  undermountQty: PropTypes.number
 }
 
 export default Options
