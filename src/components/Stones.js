@@ -17,7 +17,8 @@ class Stones extends React.Component {
       <div>
         <section className="hero is-primary">
           <div className="hero-body">
-            <h1 className="title">Choose the stone you want</h1>
+            <h1 className="title">Choose your stone</h1>
+            <h2 className="subtitle">We have a variety of colors to choose from</h2>
           </div>
         </section>
         <section className="section">

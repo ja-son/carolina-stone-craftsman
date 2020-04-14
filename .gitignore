@@ -3,6 +3,7 @@
 node_modules
 .cache/
 # Build directory
+lambda/
 public/
 static/admin/*.bundle.*
 .DS_Store

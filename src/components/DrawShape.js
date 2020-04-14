@@ -210,8 +210,7 @@ export default class DrawShape extends React.Component {
     }
 
     var drawFunctionsFactories = {
-      polygon:polygon,
-      //circle:circle
+      polygon:polygon
     }
   
     function ShapeDefinition(rawDef, withGuides){		
@@ -313,7 +312,18 @@ export default class DrawShape extends React.Component {
               updValuesMap(generated);
               return rawDef.areaFn(generated.paramsValuesMap);
             };
-            
+            generated.getTotalEdgeLength = function() {
+              updValuesMap(generated);
+              return generated.params.reduce(function(acc, cur, i) {
+                return cur.edgeType === 3 ? acc + rawDef.paramsLengthFn[i](generated.paramsValuesMap) : acc;
+              }, 0);
+            };
+            generated.getTotalBacksplashLength = function() {
+              updValuesMap(generated);
+              return generated.params.reduce(function(acc, cur, i) {
+                return cur.edgeType === 4 ? acc + rawDef.paramsLengthFn[i](generated.paramsValuesMap) : acc;
+              }, 0);
+            };
     
           return generated;
         }

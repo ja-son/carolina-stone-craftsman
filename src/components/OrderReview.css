@@ -1,0 +1,15 @@
+.sr-combo-inputs {
+  margin: 20px 0;
+}
+
+.sr-input {
+  font-size: 1rem;
+  border-color: #dbdbdb;
+  border-radius: 4px;
+  line-height: 1.5;
+  height: 2.5em;
+}
+
+.sr-card-element {
+  padding-top: 12px;
+}

@@ -21,8 +21,21 @@ export default class Dimensions extends React.Component {
           </div>
         </section>
         <section className="section">
-          <div className="columns is-multiline">
-            <div className="column"></div>
+          <div className="columns ">
+            {/* <div className="column"></div> */}
+            <div className="column is-4">
+              <div className="notification is-info is-light">
+                  <strong>How to measure your counter top</strong>
+                  <figure className="image is-16by9">
+                  <iframe className="has-ratio" src="https://www.youtube.com/embed/8sLQpMKJoQ8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                  </figure>
+                  <p>
+                    Primar lorem ipsum dolor sit amet, consectetur
+                    adipiscing elit lorem ipsum dolor. Pellentesque risus mi, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
+                    consectetur adipiscing elit
+                  </p>
+                </div>
+            </div>
             <div className="column">
               <DrawShape 
                 rawDef={currentShapeType}
@@ -35,7 +48,7 @@ export default class Dimensions extends React.Component {
                   display: "block"
                 }} />
             </div>
-            <div className="column is-7">
+            <div className="column is-4">
             {currentShape &&
             currentShape.params.map((dimension) => (
               <div className="buttons has-addons" key={`${dimension.label}-length`}>

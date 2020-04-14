@@ -15,7 +15,21 @@ module.exports = {
         }], errors: ['', '', '', ''],
         areaFn: function (p) {
             return p.A * p.B;
-        }
+        },
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            }
+        ]
     },
     {
         apiId: '2', name: 'rectangle', params: ['A', 'B', 'c', 'd'], defaultParams: [100, 60, null, null],
@@ -30,13 +44,47 @@ module.exports = {
         }], errors: ['', '', '', ''],
         areaFn: function (p) {
             return p.A * p.B;
-        }
+        },
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            }
+        ]
     },
     {
         apiId: '3',
         name: 'L-shape',
         params: ['A', 'B', 'c', 'd', 'E', 'F'],
         defaultParams: [80, 40, null, null, 40, 100],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.A - p.E;
+            },
+            function(p) {
+                return p.F - p.B;
+            },
+            function(p) {
+                return p.E;
+            },
+            function(p) {
+                return p.F;
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true
@@ -73,6 +121,26 @@ module.exports = {
         name: 'L-shape-mirror',
         params: ['A', 'B', 'C', 'd', 'e', 'F'],
         defaultParams: [80, 100, 40, null, null, 40],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.C;
+            },
+            function(p) {
+                return p.B - p.F;
+            },
+            function(p) {
+                return p.A - p.C;
+            },
+            function(p) {
+                return p.F;
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true
@@ -118,6 +186,29 @@ module.exports = {
         name: 'L-shape-diag1',
         params: ['A', 'B', 'c', 'd', 'e', 'F', 'G'],
         defaultParams: [80, 30, null, null, null, 30, 100],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.A - p.F;
+            },
+            function(p) {
+                return diagParam;
+            },
+            function(p) {
+                return p.G -p.B;
+            },
+            function(p) {
+                return p.F;
+            },
+            function(p) {
+                return p.G;
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true
@@ -156,6 +247,29 @@ module.exports = {
         name: 'L-shape-diag1-mirror',
         params: ['A', 'B', 'C', 'd', 'e', 'f', 'G'],
         defaultParams: [80, 100, 30, null, null, null, 30],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.C;
+            },
+            function(p) {
+                return p.B - p.G;
+            },
+            function(p) {
+                return diagParam;
+            },
+            function(p) {
+                return p.A - p.C
+            },
+            function(p) {
+                return p.G
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true
@@ -203,6 +317,32 @@ module.exports = {
         name: 'G-shape',
         params: ['A', 'B', 'C', 'D', 'e', 'f', 'G', 'H'],
         defaultParams: [100, 60, 30, 30, null, null, 30, 100],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.C;
+            },
+            function(p) {
+                return p.D;
+            },
+            function(p) {
+                return p.A - p.C - p.G;
+            },
+            function(p) {
+                return p.H - p.B + p.D;
+            },
+            function(p) {
+                return p.G;
+            },
+            function(p) {
+                return p.H;
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true
@@ -247,6 +387,32 @@ module.exports = {
         name: 'G-shape-mirror',
         params: ['A', 'B', 'C', 'd', 'e', 'F', 'G', 'H'],
         defaultParams: [100, 100, 30, null, null, 30, 30, 60],
+        paramsLengthFn: [
+            function(p) {
+                return p.A;
+            },
+            function(p) {
+                return p.B;
+            },
+            function(p) {
+                return p.C;
+            },
+            function(p) {
+                return p.B - p.H + p.F;
+            },
+            function(p) {
+                return p.A - p.C - p.G;
+            },
+            function(p) {
+                return p.F;
+            },
+            function(p) {
+                return p.G;
+            },
+            function (p) {
+                return p.H;
+            }
+        ],
         paramsValidFn: [
             function (p) {
                 return true

@@ -1,5 +1,6 @@
 import React from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
 import Layout from '../../components/Layout'
 import Shapes from '../../components/Shapes'
 import Dimensions from '../../components/Dimensions'
@@ -7,6 +8,10 @@ import Options from '../../components/Options'
 import Edges from '../../components/Edges'
 import ShapeTypes from '../../components/ShapeTypes'
 import Stones from '../../components/Stones'
+import InjectedOrderReview from '../../components/OrderReview'
+import api from '../../components/api'
+
+const stripePromise = api.getPublicStripeKey().then(key => loadStripe(key))
 
 export default class OrderPage extends React.Component {
   constructor(props) {
@@ -21,6 +26,7 @@ export default class OrderPage extends React.Component {
 
     this.backBtn = React.createRef()
     this.nextBtn = React.createRef()
+    this.checkOutBtn = React.createRef()
     this.handleShapeChange = this.handleShapeChange.bind(this)
     this.handleLengthChange = this.handleLengthChange.bind(this)
     this.handleNext = this.handleNext.bind(this)
@@ -29,6 +35,7 @@ export default class OrderPage extends React.Component {
     this.handleSideTypeChange = this.handleSideTypeChange.bind(this)
     this.handleOptionsChange = this.handleOptionsChange.bind(this)
     this.handleStoneChange = this.handleStoneChange.bind(this)
+    this.handleCheckOutClick = this.handleCheckOutClick.bind(this)
   }
 
   handleShapeGeneration = event => {
@@ -89,7 +96,7 @@ export default class OrderPage extends React.Component {
           dimension.edgeType = null
         } else {
           dimension.edgeType = parseInt(value)
-          dimension.isBacksplash = value === '4'
+          dimension.isBacksplash = parseInt(value) === 4
         }
       }
     })
@@ -195,13 +202,22 @@ export default class OrderPage extends React.Component {
       })
     }
 
-    if(this.state.currentStep + 1 >= 4) {
+    if(this.state.currentStep + 1 >= 4 &&
+      (this.state.currentEdge === "" ||
+        this.state.currentStone === "")) {
       this.nextBtn.current.style.display = 'none'
+    }
+
+    if(this.state.currentStep + 1 === 6) {
+      this.nextBtn.current.style.display = 'none'
+      this.checkOutBtn.current.style.display = 'block'
     }
     window.scrollTo(0,0)
   }
 
   handleBack = event => {
+    this.checkOutBtn.current.style.display = 'none'
+
     if(this.state.currentStep !== 1) {
       this.setState({
         currentStep: this.state.currentStep - 1
@@ -215,8 +231,14 @@ export default class OrderPage extends React.Component {
     window.scrollTo(0,0)
   }
 
+  handleCheckOutClick = event => {
+    let el = document.getElementById("checkOutModal")
+    if(el) {
+      el.classList.add('is-active')
+    }
+  }
+
   render() {
-    const { data } = this.props
     const { currentShape } = this.state
 
     return (
@@ -253,20 +275,46 @@ export default class OrderPage extends React.Component {
           currentStone={this.state.currentStone}
           onChange={this.handleStoneChange}
           />
+
+        <Elements stripe={stripePromise}>
+          <InjectedOrderReview
+            currentStep={this.state.currentStep}
+            shape={this.state.currentShape}
+            edge={this.state.currentEdge}
+            stone={this.state.currentStone}
+            options={this.state.options}
+            />
+        </Elements>
+
         <section className="section">
-          <div className="container">
+          <div className="columns">
+            <div className="column"></div>
+            <div className="column">
             <a id="backBtn" ref={this.backBtn}
               className="button is-large" 
               style={{
-                display: "none"
+                display: "none",
+                maxWidth: "331px"
               }}
               onClick={this.handleBack}>Back</a>
+            </div>
+            <div className="column">
             <a id="nextBtn" ref={this.nextBtn}
               className="button is-large is-success" 
               style={{
-                display: "none"
+                display: "none",
+                maxWidth: "331px"
               }}
               onClick={this.handleNext}>Next</a>
+            <a id="checkOutBtn" ref={this.checkOutBtn}
+              className="button is-large is-success" 
+              style={{
+                display: "none",
+                maxWidth: "331px"
+              }}
+              onClick={this.handleCheckOutClick}>Checkout</a>
+            </div>
+            <div className="column"></div>
           </div>
         </section>
        
