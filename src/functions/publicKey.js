@@ -1,4 +1,7 @@
 // For more info, check https://www.netlify.com/docs/functions/#javascript-lambda-functions
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
 module.exports.handler = async function(event, context) {
   // Only allow POST
   if (event.httpMethod !== "GET") {
@@ -8,7 +11,7 @@ module.exports.handler = async function(event, context) {
   return {
     // return null to show no errors
     statusCode: 200, // http status code
-    body: JSON.stringify({publicKey: 'pk_test_R9IeJiPwsi6pVsJR1RXjsF0B00AWKROF7L'})
+    body: JSON.stringify({publicKey: process.env.STRIPE_PUBLIC_KEY})
   }
 }
 

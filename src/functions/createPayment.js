@@ -1,5 +1,8 @@
 // For more info, check https://www.netlify.com/docs/functions/#javascript-lambda-functions
-const stripe = require('stripe')('sk_test_MjkfruYmuXndIFuyK3zhTpz400yHHdZ0MP');
+require('dotenv').config({
+  path: `.env.${process.env.NODE_ENV}`
+})
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
 
 module.exports.handler = async function(event, context) {
   // Only allow POST
