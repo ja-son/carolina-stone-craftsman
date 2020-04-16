@@ -33,7 +33,7 @@ module.exports.handler = async function(event, context) {
     amount: (totalAmount * 100).toFixed(),
     currency: 'usd',
     payment_method_types: ['card'],
-    statement_descriptor: 'Stone countertop',
+    description: 'Stone countertop',
     // Verify your integration in this guide by including this parameter
     metadata: {integration_check: 'accept_a_payment'},
   });
