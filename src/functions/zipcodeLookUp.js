@@ -27,7 +27,10 @@ module.exports.handler = async function(event, context, callback) {
         body: JSON.stringify(response.data)
       })
     )
-    .catch((error) => callback(error, null))
+    .catch((error) => callback(error, {
+      statusCode: error.response.status,
+      body: error.toJSON()
+    }))
 }
 
 // Now you are ready to access this API from anywhere in your Gatsby app! For example, in any event handler or lifecycle method, insert:
