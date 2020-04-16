@@ -12,7 +12,7 @@ module.exports.handler = async function(event, context, callback) {
 
   const zipcode = event.queryStringParameters.zip;
 
-  axios({
+  await axios({
     "method":"GET",
     "url":`https://redline-redline-zipcode.p.rapidapi.com/rest/multi-info.json/${zipcode}/degrees`,
     "headers":{
