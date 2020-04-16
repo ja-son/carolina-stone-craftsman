@@ -92,7 +92,7 @@ class OrderReview extends React.Component {
     const {name, value} = event.target
 
     if(value.length >= 5) {
-      fetch(`/.netlify/functions/zipcodeLookup?zip=${value}`)
+      fetch(`/.netlify/functions/zipcodeLookUp?zip=${value}`)
         .then(response => response.json())
         .then(data => {
           this.setState({
