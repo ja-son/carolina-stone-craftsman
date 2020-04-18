@@ -44,7 +44,7 @@ const Navbar = class extends React.Component {
               <img src={logo} alt="Carolina Stone Craftsman" style={{ transform: 'scale(2.7)', marginLeft: '40px', marginTop: '18px', marginBottom: '28px' }} />
             </Link>
             <span className="navbar-item phone" style={{ marginLeft: '2.2em' }}>
-              Call Today &nbsp; <a href="tel:803-408-3456">803-408-3456</a>
+              <a href="tel:803-408-3456">803-408-3456</a>
             </span>
             {/* Hamburger menu */}
             <div
