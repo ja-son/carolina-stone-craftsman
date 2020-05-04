@@ -18,6 +18,7 @@ export default class Dimensions extends React.Component {
         <section className="hero is-primary">
           <div className="hero-body">
             <h1 className="title">Enter dimension and select side type</h1>
+            <h2 className="subtitle">Be sure to watch your video on how to correctly measure your counter top</h2>
           </div>
         </section>
         <section className="section">

@@ -16,6 +16,7 @@ class Edges extends React.Component {
         <section className="hero is-primary">
           <div className="hero-body">
             <h1 className="title">Select an edge type</h1>
+            <h2 className="subtitle">We have many edge types to provide the look and feel you want for your project</h2>
           </div>
         </section>
         <section className="section">

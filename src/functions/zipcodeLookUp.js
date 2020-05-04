@@ -28,7 +28,7 @@ module.exports.handler = async function(event, context, callback) {
       })
     )
     .catch((error) => callback(error, {
-      statusCode: error.response.status,
+      statusCode: 400,
       body: error.toJSON()
     }))
 }

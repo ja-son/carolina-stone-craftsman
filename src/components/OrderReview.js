@@ -17,6 +17,7 @@ class OrderReview extends React.Component {
       metadata: null,
       succeeded: false,
       processing: false,
+      order: {},
       lineItems: [],
       city: "",
       postal_code: "",
@@ -28,11 +29,8 @@ class OrderReview extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.props.currentStep != 6) {
-      return
-    }
-
-    if(this.state.error || this.state.amount > 0) {
+    console.log("OrderReview Did Update")
+    if(this.props.currentStep != 6 || this.state.error) {
       return
     }
 
@@ -44,30 +42,51 @@ class OrderReview extends React.Component {
       edgeLength: this.props.shape.getTotalEdgeLength(),
       backsplashLength: this.props.shape.getTotalBacksplashLength(),
       shape: this.props.shape.rawDef.name,
+      iconURIData: this.props.shape.iconURIData,
       sides: []
     }
 
-    this.props.shape.params.forEach(element => {
+    let shape = this.props.shape
+    this.props.shape.params.map( (item, index) => {
       order.sides.push({
-        label: element.label,
-        length: element.value,
-        isBacksplash: element.isBacksplash,
-        edgeType: element.edgeType
+        label: item.label,
+        length: shape.rawDef.paramsLengthFn[index](shape.paramsValuesMap),
+        isBacksplash: item.isBacksplash,
+        edgeType: item.edgeType
       })
     })
 
-    api.createPaymentIntent({
-      payment_method_types: ["card"],
-      details: order
-    })
-    .then(data => {
-      this.setClientSecret(data.clientSecret)
-      this.setAmount(data.amount)
-      this.setLineItems(data.lineItems)
-    })
-    .catch(err => {
-      this.setError(err.message)
-    })
+    // this.props.shape.params.forEach(element => {
+    //   order.sides.push({
+    //     label: element.label,
+    //     length: element.value,
+    //     isBacksplash: element.isBacksplash,
+    //     edgeType: element.edgeType
+    //   })
+    // })
+
+    if(this.state.amount === 0 || 
+        (this.state.order.stone && this.state.order.stone !== order.stone) ||
+        (this.state.order.area && this.state.order.area !== order.area) ||
+        (this.state.order.edgeLength && this.state.order.edgeLength !== order.edgeLength) ||
+        (this.state.order.backsplashLength && this.state.order.backsplashLength !== order.backsplashLength) ) {
+
+      api.createPaymentIntent({
+        payment_method_types: ["card"],
+        details: order
+      })
+      .then(data => {
+        this.setState({
+          clientSecret: data.clientSecret,
+          amount: data.amount,
+          lineItems: data.lineItems,
+          order: order
+        })
+      })
+      .catch(err => {
+        this.setError(err.message)
+      })
+    }
   }
 
   handleClose = event => {
@@ -134,6 +153,15 @@ class OrderReview extends React.Component {
   }
 
   setSucceeded(value) {
+    api.saveOrder({
+      amount: this.state.amount,
+      order: this.state.order,
+      lineItems: this.state.lineItems,
+      metadata: this.state.metadata
+    })
+      .catch(err => {
+        this.setError(err.message)
+      })
     this.setState({
       succeeded: value
     })
@@ -171,6 +199,7 @@ class OrderReview extends React.Component {
       receipt_email: ev.target.email.value,
       shipping: {
           name: ev.target.name.value,
+          phone: ev.target.phone.value,
           address: {
             line1: ev.target.line1.value,
             city: ev.target.city.value,
@@ -186,9 +215,9 @@ class OrderReview extends React.Component {
       console.log("[error]", payload.error);
     } else {
       this.setError(null);
-      this.setSucceeded(true);
       this.setProcessing(false);
       this.setMetadata(payload.paymentIntent);
+      this.setSucceeded(true);
       console.log("[PaymentIntent]", payload.paymentIntent);
     }
   }

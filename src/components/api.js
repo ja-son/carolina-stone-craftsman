@@ -58,9 +58,34 @@ const getPublicStripeKey = async options => {
     });
 };
 
+const saveOrder = async options => {
+  return window
+    .fetch(`/.netlify/functions/saveOrder`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify(options)
+    })
+    .then(res => {
+      if (res.status === 200) {
+        return res.json();
+      } else {
+        return null;
+      }
+    })
+    .then(data => {
+      if (!data || data.error) {
+        console.log("API error:", { data });
+        throw new Error("SaveOrder API Error");
+      }
+    });
+};
+
 const api = {
   createPaymentIntent,
   getPublicStripeKey: getPublicStripeKey,
+  saveOrder: saveOrder
 };
 
 export default api;

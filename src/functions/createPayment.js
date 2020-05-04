@@ -35,7 +35,9 @@ module.exports.handler = async function(event, context) {
     payment_method_types: ['card'],
     description: 'Stone countertop',
     // Verify your integration in this guide by including this parameter
-    metadata: {integration_check: 'accept_a_payment'},
+    metadata: {
+      integration_check: 'accept_a_payment'
+    },
   });
 
   paymentIntent.lineItems = [
