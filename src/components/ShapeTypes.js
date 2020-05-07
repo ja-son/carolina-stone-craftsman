@@ -4,7 +4,19 @@ module.exports = {
   shapeTypes: [
     {
         apiId: '1', name: 'square', params: ['A', 'B', 'c', 'd'], defaultParams: [80, 80, null, null],
-        paramsValidFn: [null, null, null, null],
+        paramsValidFn: [
+            function (p) {
+                return p.A <= 72;
+            }, 
+            function (p) {
+                return p.B <= 72;
+            }, 
+            function (p) {
+                return p.C <= 72;
+            }, 
+            function (p) {
+                return p.D <= 72;
+            }],
         drawFn: ['polygon', function (p) {
             return [
                 [0, 0],
@@ -12,7 +24,7 @@ module.exports = {
                 [p.A, p.B],
                 [0, p.B]
             ]
-        }], errors: ['', '', '', ''],
+        }], errors: ['requires consultation', 'requires consultation', 'requires consultation', 'requires consultation'],
         areaFn: function (p) {
             return p.A * p.B;
         },
@@ -29,11 +41,25 @@ module.exports = {
             function(p) {
                 return p.B;
             }
-        ]
+        ],
+        canOrderOnline: true,
+        maxSideLength: 72
     },
     {
         apiId: '2', name: 'rectangle', params: ['A', 'B', 'c', 'd'], defaultParams: [100, 60, null, null],
-        paramsValidFn: [null, null, null, null],
+        paramsValidFn: [
+            function (p) {
+                return p.A <= 72;
+            }, 
+            function (p) {
+                return p.B <= 72;
+            }, 
+            function (p) {
+                return p.C <= 72;
+            }, 
+            function (p) {
+                return p.D <= 72;
+            }],
         drawFn: ['polygon', function (p) {
             return [
                 [0, 0],
@@ -41,7 +67,7 @@ module.exports = {
                 [p.A, p.B],
                 [0, p.B]
             ]
-        }], errors: ['', '', '', ''],
+        }], errors: ['requires consultation', 'requires consultation', 'requires consultation', 'requires consultation'],
         areaFn: function (p) {
             return p.A * p.B;
         },
@@ -58,7 +84,9 @@ module.exports = {
             function(p) {
                 return p.B;
             }
-        ]
+        ],
+        canOrderOnline: true,
+        maxSideLength: 72
     },
     {
         apiId: '3',
@@ -87,21 +115,21 @@ module.exports = {
         ],
         paramsValidFn: [
             function (p) {
-                return true
+                return p.A <= 54;
             },
             function (p) {
-                return !(p.F <= p.B)
+                return !(p.F <= p.B);
             },
             null,
             null,
             function (p) {
-                return !(p.A <= p.E)
+                return !(p.A <= p.E);
             },
             function (p) {
-                return true
+                return p.F <= 54;
             }
         ],
-        errors: ['', 'B must be smaller than F', '', '', 'E must be smaller than A', ''],
+        errors: ['requires consultation', 'B must be smaller than F', '', '', 'E must be smaller than A', 'requires consultation'],
         drawFn: ['polygon', function (p) {
             return [
                 [0, 0],
@@ -114,7 +142,9 @@ module.exports = {
         }],
         areaFn: function (p) {
             return p.A * p.F - p.B * p.E;
-        }
+        },
+        canOrderOnline: true,
+        maxSideLength: 54
     },
     {
         apiId: '4',
@@ -143,21 +173,21 @@ module.exports = {
         ],
         paramsValidFn: [
             function (p) {
-                return true
+                return p.A <= 54;
             },
             function (p) {
-                return true
+                return p.B <= 54;
             },
             function (p) {
-                return !(p.A <= p.C)
+                return !(p.A <= p.C);
             },
             null,
             null,
             function (p) {
-                return !(p.B <= p.F)
+                return !(p.B <= p.F);
             }
         ],
-        errors: ['', '', 'C must be smaller than A', '', '', 'F must be smaller than B'],
+        errors: ['requires consultation', 'requires consultation', 'C must be smaller than A', '', '', 'F must be smaller than B'],
         drawFn: ['polygon', function (p) {
             return [
                 [0, 0],
@@ -179,7 +209,9 @@ module.exports = {
             'D':'D',
             'E':'C',
             'F':'B'
-        }
+        },
+        canOrderOnline: true,
+        maxSideLength: 54
     },
     {
         apiId: '5',
@@ -240,7 +272,8 @@ module.exports = {
         }],
         areaFn: function (p) {
             return p.A * p.G - p.F * p.B;
-        }
+        },
+        canOrderOnline: false
     },
     {
         apiId: '6',
@@ -310,7 +343,8 @@ module.exports = {
             'E':'D',
             'F':'C',
             'G':'B'
-        }
+        },
+        canOrderOnline: false
     },
     {
         apiId: '7',
@@ -380,7 +414,8 @@ module.exports = {
         }],
         areaFn: function (p) {
             return p.G * p.H + p.C * p.B + (p.A - p.G - p.C) * (p.B - p.D);
-        }
+        },
+        canOrderOnline: false
     }, 
     {
         apiId: '8',
@@ -460,7 +495,8 @@ module.exports = {
             'F': 'D',
             'G': 'C',
             'H': 'B'
-        }
+        },
+        canOrderOnline: false
     }
   ]
 }

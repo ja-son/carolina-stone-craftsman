@@ -9,8 +9,10 @@ export default class Dimensions extends React.Component {
     }
 
     let { currentShape, currentShapeType } = this.props
+    let maxLength = currentShapeType.maxSideLength
     if(currentShape != null && currentShape.rawDef != null) {
       currentShapeType = currentShape
+      maxLength = currentShape.rawDef.maxSideLength
     }
 
     return (
@@ -44,6 +46,7 @@ export default class Dimensions extends React.Component {
                 withGuides={true} 
                 width={325} 
                 height={325}
+                margin={20}
                 style={{
                   margin: "auto",
                   display: "block"
@@ -69,7 +72,7 @@ export default class Dimensions extends React.Component {
                           : <input 
                               id={`${dimension.label}-length`} 
                               name={`${dimension.label}-length`} 
-                              value={dimension.value ? dimension.value : ''}
+                              value={dimension.value ? dimension.value <= maxLength ? dimension.value : maxLength+1 : ''}
                               className="input" 
                               type="number" 
                               min={0}

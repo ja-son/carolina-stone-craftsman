@@ -1,6 +1,7 @@
 import React from 'react'
-import { loadStripe } from "@stripe/stripe-js";
-import { Elements } from "@stripe/react-stripe-js";
+import { Link } from 'gatsby'
+import { loadStripe } from "@stripe/stripe-js"
+import { Elements } from "@stripe/react-stripe-js"
 import Layout from '../../components/Layout'
 import Shapes from '../../components/Shapes'
 import Dimensions from '../../components/Dimensions'
@@ -26,6 +27,7 @@ export default class OrderPage extends React.Component {
 
     this.backBtn = React.createRef()
     this.nextBtn = React.createRef()
+    this.consultBtn = React.createRef()
     this.checkOutBtn = React.createRef()
     this.handleShapeChange = this.handleShapeChange.bind(this)
     this.handleLengthChange = this.handleLengthChange.bind(this)
@@ -51,8 +53,11 @@ export default class OrderPage extends React.Component {
 
   handleShapeChange = event => {
     const {name, value} = event.target
+    let shapeType = {}
+
     ShapeTypes.shapeTypes.map( (type) => {
       if(type.apiId === value) {
+        shapeType = type
         this.setState({
           currentShapeType: type,
           currentShape: null,
@@ -66,8 +71,15 @@ export default class OrderPage extends React.Component {
       [name]: value
     })
 
-    this.nextBtn.current.style.display =  'block'
-    this.nextBtn.current.scrollIntoView({behavior: "smooth"})
+    if(shapeType.canOrderOnline) {
+      this.consultBtn.current.style.display = 'none'
+      this.nextBtn.current.style.display =  'block'
+      this.nextBtn.current.scrollIntoView({behavior: "smooth"})
+    } else {
+      this.consultBtn.current.style.display = 'block'
+      this.consultBtn.current.scrollIntoView({behavior: "smooth"})
+      this.nextBtn.current.style.display =  'none'
+    }
   }
 
   handleLengthChange = event => {
@@ -172,11 +184,15 @@ export default class OrderPage extends React.Component {
             document.getElementById(`${element.label}-warn`).style = "visibility: hidden"
           }
           document.getElementById(`${element.label}-warn`).innerHTML = "Select side type"
+          this.consultBtn.current.style.display = 'none'
+          this.nextBtn.current.style.display =  'block'
         } else {
           isValid = false
           document.getElementById(`${element.label}-warn`).innerHTML = element.errorStr
           document.getElementById(`${element.label}-warn`).style = "visibility: visible"
           document.getElementById(`${element.label}-length`).classList.add('is-danger')
+          this.consultBtn.current.style.display = 'block'
+          this.nextBtn.current.style.display =  'none'
         }
       } catch (error) {
         console.log(error)
@@ -313,6 +329,9 @@ export default class OrderPage extends React.Component {
                 maxWidth: "331px"
               }}
               onClick={this.handleCheckOutClick}>Checkout</a>
+            <Link className="button is-large is-success"
+              ref={this.consultBtn}
+              to="/contact">Schedule Consultation</Link>
             </div>
             <div className="column"></div>
           </div>

@@ -18,40 +18,25 @@ class Shapes extends React.Component {
           </div>
         </section>
         <section className="section">
-          <div className="columns">
-            <div className="column"></div>
-            <div className="column is-7">
-              <div className="columns is-multiline">
+          <div className="columns is-mobile is-centered">
+            <div className="column is-half-desktop">
+              <div className="columns is-multiline is-mobile">
                 { ShapeTypes.shapeTypes.map( (shape) => (
                   <div className="column" key={shape.apiId}>
-                    <div className={this.props.currentShape === shape.apiId ? "card selected" : "card"} style={{
-                      maxHeight: "200px"
-                    }}>
-                      <div className="card-image">
-                        <figure className="image" style={{
-                           marginLeft: "auto",
-                           marginRight: "auto",
-                          width: "70%"
-                        }}>
-                          <label className="radioImage">
-                            <input type="radio" name="shape" value={shape.apiId} onChange={this.props.handleChange} checked={this.props.currentShape === shape.apiId} />
-                            <DrawShape id={shape.apiId} 
-                              rawDef={shape} 
-                              width={200} height={200} 
-                              />
-                          </label>
-                        </figure>
-                      </div>
-                      <div className="card-content">
-                        <div className="content">
-                        </div>
-                      </div>
+                    <div className={this.props.currentShape === shape.apiId ? "selected" : "none"}>
+                      <label className="radioImage">
+                        <input type="radio" name="shape" value={shape.apiId} onChange={this.props.handleChange} checked={this.props.currentShape === shape.apiId} />
+                        <DrawShape id={shape.apiId} 
+                          rawDef={shape} 
+                          width={128} height={128} 
+                          />
+                      </label>
                     </div>
                   </div>
                 ))}
+                <div className="column"></div>
               </div>
             </div>
-            <div className="column"></div>
           </div>
         </section>
       </div>

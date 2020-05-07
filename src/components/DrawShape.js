@@ -15,7 +15,7 @@ const configuration = {
     shapes:{
       fillColor:"rgba(128,128,128,0.5)",
       fillColorSelected:"rgba(128,128,128,0.8)",
-      defaultMargin:20,
+      defaultMargin:0,
       lineWidth:3,
       guides:{
         color1:"#000000",
@@ -25,7 +25,7 @@ const configuration = {
       centralGapLength:20
       }
     },
-    shapeIconSize:100,
+    shapeIconSize:128,
     edgeTypeColors:['hsl(0,50%,50%)','hsl(45,50%,50%)','hsl(90,50%,50%)','hsl(135,50%,50%)']
   }
 }
@@ -45,7 +45,7 @@ export default class DrawShape extends React.Component {
     }
 
     function polygon (ptsFn){
-  	  return function(ctx,offset,scale,fill,withGuides,fitHorizontal,edgeShape,p2i){
+  	  return function(ctx,offset,scale,fill,withGuides,fitHorizontal,edgeShape,p2i,margin){
 		    updValuesMap(this);
         var x,y,pts = ptsFn(this.paramsValuesMap);
 
@@ -65,9 +65,10 @@ export default class DrawShape extends React.Component {
 		    scale*=p2i;
 
         if(fitHorizontal){
-          scale = ctx.canvas.width/(100+2*configuration.apperance.shapes.defaultMargin);
-          deltaX=configuration.apperance.shapes.defaultMargin;
-          deltaY=configuration.apperance.shapes.defaultMargin;
+          margin = margin ? margin : configuration.apperance.shapes.defaultMargin;
+          scale = ctx.canvas.width/(100+2*margin);
+          deltaX= margin;
+          deltaY= margin;
           rot = 0;
         }
 
@@ -213,11 +214,12 @@ export default class DrawShape extends React.Component {
       polygon:polygon
     }
   
-    function ShapeDefinition(rawDef, withGuides){		
+    function ShapeDefinition(rawDef, withGuides, margin){		
       
       if (withGuides == null) withGuides = false
 
       let drawFn =  rawDef.drawFn
+      
       if(rawDef.drawFn[0] != null) {
         rawDef.drawFn = drawFunctionsFactories[rawDef.drawFn[0]](rawDef.drawFn[1]);
 
@@ -338,17 +340,29 @@ export default class DrawShape extends React.Component {
                   null,
                   "#999",
                   withGuides,
-                  true
+                  true,
+                  null,
+                  null,
+                  margin ? margin : 0
                   );
       } else {
         iconDrawCanvas.width = iconDrawCanvas.width;
-        rawDef.drawFn(
+        rawDef.rawDef.prototypical = null;
+        let newObj = JSON.parse(JSON.stringify(rawDef));
+        newObj.drawFn = rawDef.drawFn;
+        for(var i = 0;i<newObj.params.length;i++){
+          newObj.params[i].value=newObj.rawDef.defaultParams[i];
+        }
+        newObj.drawFn(
           iconDrawCtx,
           null,
           null,
           "#999",
           withGuides,
-          true
+          true,
+          null,
+          null,
+          margin ? margin : 0
           );
       }
   
@@ -357,7 +371,7 @@ export default class DrawShape extends React.Component {
       return rawDef;		
     }
     let handleShapeFn = this.props.handleChange
-    let shape = ShapeDefinition(this.props.rawDef, this.props.withGuides)
+    let shape = ShapeDefinition(this.props.rawDef, this.props.withGuides, this.props.margin)
 
     if(handleShapeFn) {
       handleShapeFn(shape.prototypical)
