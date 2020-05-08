@@ -361,35 +361,37 @@ ridgeCustom[4].flat = true;
 
 var Ridges = {
       popular:[
-  {edge:squareRoundedRidge(0.2,0.2,10),name:'Straight',apiID:69},     //
+//   {edge:squareRoundedRidge(0.2,0.2,10),name:'Straight',apiID:69},     //
+  {edge:squareRoundedRidge(0.2,0.2,10),name:'Flat Polish',apiID:69},     //
 
-  {edge:squareRoundedRidge(0.7,0.2,10),name:'¼ Round',apiID:20},     //
+//   {edge:squareRoundedRidge(0.7,0.2,10),name:'¼ Round',apiID:20},     //
+  {edge:squareRoundedRidge(0.7,0.2,10),name:'Eased Edge',apiID:20},     //
 
   {edge:squareRoundedRidge(0.75,0.2,10,{
               bevelTop:true
           }),name:'¼ Bevel',apiID:1},
                                 //
-  {edge:squareRoundedRidge(0.7,0.7,10),name:'¼ Round T&B',apiID:21},     //
+//   {edge:squareRoundedRidge(0.7,0.7,10),name:'¼ Round T&B',apiID:21},     //
 
-  {edge:squareRoundedRidge(1,0.3,10),name:'Half Bullnose',apiID:72},       //
+//   {edge:squareRoundedRidge(1,0.3,10),name:'Half Bullnose',apiID:72},       //
 
-  {edge:squareRoundedRidge(1,0.3,10,{     //
-      bevelTop:true,
-      bevelTopAsym:0.2
-  }),name:'Half Bevel',apiID:71},
+//   {edge:squareRoundedRidge(1,0.3,10,{     //
+//       bevelTop:true,
+//       bevelTopAsym:0.2
+//   }),name:'Half Bevel',apiID:71},
 
-  {edge:squareRoundedRidge(1,1,10),name:'Full Bullnose',apiID:74},         //
+//   {edge:squareRoundedRidge(1,1,10),name:'Full Bullnose',apiID:74},         //
 
   {edge:squareRoundedRidge(1.7,0.25,10),name:'Demi Bullnose',apiID:28},     //
 
-  {edge:squareRoundedRidge(0.7,0.7,10,{     //
-      bevelTop:true,
-      bevelBottom:true
-  }),name:'Bevel T  B'},
+//   {edge:squareRoundedRidge(0.7,0.7,10,{     //
+//       bevelTop:true,
+//       bevelBottom:true
+//   }),name:'Bevel T  B'},
 
-  {edge:squareRoundedRidge(1.4,0.2,10,{     //
-              bevelTop:true
-          }),name:'1" Bevel',apiID:22}
+//   {edge:squareRoundedRidge(1.4,0.2,10,{     //
+//               bevelTop:true
+//           }),name:'1" Bevel',apiID:22}
 
       ]
 };

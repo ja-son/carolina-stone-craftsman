@@ -29,7 +29,6 @@ class OrderReview extends React.Component {
   }
 
   componentDidUpdate() {
-    console.log("OrderReview Did Update")
     if(this.props.currentStep != 6 || this.state.error) {
       return
     }
@@ -55,15 +54,6 @@ class OrderReview extends React.Component {
         edgeType: item.edgeType
       })
     })
-
-    // this.props.shape.params.forEach(element => {
-    //   order.sides.push({
-    //     label: element.label,
-    //     length: element.value,
-    //     isBacksplash: element.isBacksplash,
-    //     edgeType: element.edgeType
-    //   })
-    // })
 
     if(this.state.amount === 0 || 
         (this.state.order.stone && this.state.order.stone !== order.stone) ||
@@ -159,12 +149,16 @@ class OrderReview extends React.Component {
       lineItems: this.state.lineItems,
       metadata: this.state.metadata
     })
-      .catch(err => {
-        this.setError(err.message)
-      })
+    .catch(err => {
+      this.setError(err.message)
+    })
     this.setState({
       succeeded: value
     })
+
+    if(this.props.onSuccess) {
+      this.props.onSuccess()
+    }
   }
 
   setProcessing(value) {
@@ -229,7 +223,7 @@ class OrderReview extends React.Component {
       <section className="hero is-primary">
         <div className="hero-body">
           <h1 className="title">Thanks for your order</h1>
-          <h2 className="subtitle">We are getting started on your order right away, and you will receive an order confirmation email to {this.state.metadata ? this.state.metadata.receipt_email : ''}.</h2>
+          <h2 className="subtitle">We are getting started on your order right away, and you will receive a confirmation email at {this.state.metadata ? this.state.metadata.receipt_email : ''}. You can also expect a call from one of our sales staff within 24 hours to provide a lead time of when your will be ready.</h2>
         </div>
       </section>
       <div className="container">
@@ -553,7 +547,8 @@ class OrderReview extends React.Component {
 }
 
 OrderReview.propTypes = {
-  currentStep: PropTypes.number
+  currentStep: PropTypes.number,
+  onSuccess: PropTypes.func
 }
 
 const InjectedOrderReview = (props) => {
@@ -568,6 +563,7 @@ const InjectedOrderReview = (props) => {
           edge={props.edge}
           stone={props.stone}
           options={props.options} 
+          onSuccess={props.onSuccess}
           />
       )}
     </ElementsConsumer>

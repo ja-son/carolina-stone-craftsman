@@ -27,28 +27,29 @@ class Edges extends React.Component {
             {/* <div className="column"></div> */}
             {Ridges.popular.map(edge => (
               <div className="column" key={edge.name}>
-                <div className={currentEdge === edge.name ? "card selected" : "card"} style={{
+                {/* <div className={currentEdge === edge.name ? "card selected" : "card"} style={{
                   maxHeight: "200px",
                   minWidth: "150px"
-                }}>
-                  <div className="card-image">
-                    <figure className="image" style={{
+                }}> */}
+                  {/* <div className="card-image"> */}
+                    {/* <figure className="image" style={{
                       marginLeft: "auto",
                       marginRight: "auto",
                       width: "50%"
-                    }}>
+                    }}> */}
                       <label className="radioImage">
                         <input type="radio" name="currentEdge" value={edge.name} onChange={this.props.onChange} checked={currentEdge === edge.name} />
-                        <DrawEdge name={edge.name} id={edge.name} />
-                      </label>
-                    </figure>
-                  </div>
-                  <div className="card-content">
-                    <div className="content">
+                        <DrawEdge name={edge.name} id={edge.name} /><br/>
                       {edge.name}
+                      </label>
+                      {/* </figure>
                     </div>
-                  </div>
-                </div>
+                    <div className="card-content">
+                      <div className="content">
+                        {edge.name}
+                      </div>
+                    </div>
+                </div> */}
               </div>
             ))}
             <div className="column"></div>

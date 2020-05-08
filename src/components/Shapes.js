@@ -34,7 +34,6 @@ class Shapes extends React.Component {
                     </div>
                   </div>
                 ))}
-                <div className="column"></div>
               </div>
             </div>
           </div>

@@ -42,9 +42,11 @@ class Stones extends React.Component {
                                   <input type="radio" name="currentStone" value={image.name} onChange={this.props.onChange} checked={currentStone === image.name} />
                                   <PreviewCompatibleImage
                                     imageInfo={{
+                                      alt: image.name,
                                       image: image,
                                       style: {
-                                        maxWidth: "300px"
+                                        maxWidth: "300px",
+                                        maxHeight: "225px"
                                       }
                                     }} /> 
                                 </label>

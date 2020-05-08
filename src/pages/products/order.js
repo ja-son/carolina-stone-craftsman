@@ -38,6 +38,7 @@ export default class OrderPage extends React.Component {
     this.handleOptionsChange = this.handleOptionsChange.bind(this)
     this.handleStoneChange = this.handleStoneChange.bind(this)
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this)
+    this.handleSuccess = this.handleSuccess.bind(this)
   }
 
   handleShapeGeneration = event => {
@@ -169,36 +170,36 @@ export default class OrderPage extends React.Component {
     let isValid = this.state.currentStep == 2
     if (!isValid) return false
 
-    this.state.currentShape.params.forEach(element => {
       try {
-        if(element.isValidEdge) {
-          document.getElementById(`${element.label}-sideTypeDiv`).classList.remove('is-danger')
-        } else {
-          isValid = false
-          document.getElementById(`${element.label}-sideTypeDiv`).classList.add('is-danger')
-        }
-  
-        if(element.isValidValue) {
-          document.getElementById(`${element.label}-length`).classList.remove('is-danger')
+        this.state.currentShape.params.forEach(element => {
           if(element.isValidEdge) {
-            document.getElementById(`${element.label}-warn`).style = "visibility: hidden"
+            document.getElementById(`${element.label}-sideTypeDiv`).classList.remove('is-danger')
+          } else {
+            isValid = false
+            document.getElementById(`${element.label}-sideTypeDiv`).classList.add('is-danger')
           }
-          document.getElementById(`${element.label}-warn`).innerHTML = "Select side type"
-          this.consultBtn.current.style.display = 'none'
-          this.nextBtn.current.style.display =  'block'
-        } else {
-          isValid = false
-          document.getElementById(`${element.label}-warn`).innerHTML = element.errorStr
-          document.getElementById(`${element.label}-warn`).style = "visibility: visible"
-          document.getElementById(`${element.label}-length`).classList.add('is-danger')
-          this.consultBtn.current.style.display = 'block'
-          this.nextBtn.current.style.display =  'none'
-        }
+  
+          if(element.isValidValue) {
+            document.getElementById(`${element.label}-length`).classList.remove('is-danger')
+            if(element.isValidEdge) {
+              document.getElementById(`${element.label}-warn`).style = "visibility: hidden; display: none"
+            }
+            document.getElementById(`${element.label}-warn`).firstChild.innerHTML = "Select side type"
+            this.consultBtn.current.style.display = 'none'
+            this.nextBtn.current.style.display =  'block'
+          } else {
+            isValid = false
+            document.getElementById(`${element.label}-warn`).firstChild.innerHTML = element.errorStr
+            document.getElementById(`${element.label}-warn`).style = "visibility: visible; display: block"
+            document.getElementById(`${element.label}-length`).classList.add('is-danger')
+            this.consultBtn.current.style.display = 'block'
+            this.nextBtn.current.style.display =  'none'
+            throw element.errorStr
+          }
+        });  
       } catch (error) {
         console.log(error)
       }
-    });  
-
     return isValid
   }
 
@@ -254,6 +255,13 @@ export default class OrderPage extends React.Component {
     }
   }
 
+  handleSuccess = event => {
+    try {
+    this.checkOutBtn.current.style = "display: none"
+    this.backBtn.current.style = "display: none"
+    } catch (e) {}
+  }
+
   render() {
     const { currentShape } = this.state
 
@@ -299,6 +307,7 @@ export default class OrderPage extends React.Component {
             edge={this.state.currentEdge}
             stone={this.state.currentStone}
             options={this.state.options}
+            onSuccess={this.handleSuccess}
             />
         </Elements>
 

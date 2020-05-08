@@ -20,14 +20,15 @@ module.exports.handler = async function(event, context) {
   let totalEdge = data.details.edgeLength / 12; // convert to feet
   let totalBacksplash = data.details.backsplashLength / 12; // convert to feet
   let basePrice = sqft * 35; // need to get price based on stone
-  let edgePrice = totalEdge * 4; // need to get edge pricing
+  let edgePrice = totalEdge * 18; // $18 per linear foot
   let backsplashPrice = totalBacksplash * 12;
   let optionsPrice = data.details.options.reduce(function(acc, cur, index) {
     return acc + (cur.qty * 150); // need to get options price
   }, 0);
   let subTotalAmount = basePrice + edgePrice + backsplashPrice + optionsPrice;
   let tax = subTotalAmount * 0.07;
-  let totalAmount = subTotalAmount + tax;
+  let cardProcessingFee = ((tax + subTotalAmount) * 0.029) + 0.3
+  let totalAmount = subTotalAmount + tax + cardProcessingFee;
 
   const paymentIntent = await stripe.paymentIntents.create({
     amount: (totalAmount * 100).toFixed(),
@@ -46,7 +47,8 @@ module.exports.handler = async function(event, context) {
     { name: "4\" Backsplash", value: backsplashPrice },
     { name: "Sink Cutout", value: optionsPrice },
     { name: "Total", value: subTotalAmount },
-    { name: "Tax", value: tax }
+    { name: "Tax", value: tax },
+    { name: "Handling", value: cardProcessingFee }
   ]
   paymentIntent.grandTotal = totalAmount
 

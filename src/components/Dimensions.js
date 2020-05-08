@@ -67,17 +67,17 @@ export default class Dimensions extends React.Component {
                               value={dimension.value ? dimension.value : ''}
                               className="input" 
                               type="number" 
-                              style={{ maxWidth: "70px" }}
+                              style={{ maxWidth: "60px" }}
                               disabled />
                           : <input 
                               id={`${dimension.label}-length`} 
                               name={`${dimension.label}-length`} 
-                              value={dimension.value ? dimension.value <= maxLength ? dimension.value : maxLength+1 : ''}
+                              value={dimension.value ? dimension.value > maxLength ? '' : dimension.value : ''}
                               className="input" 
                               type="number" 
                               min={0}
                               placeholder="[inches]" 
-                              style={{ maxWidth: "70px" }} 
+                              style={{ maxWidth: "60px" }} 
                               onChange={this.props.handleChange}
                               tabIndex={10} />
                         }
@@ -88,6 +88,9 @@ export default class Dimensions extends React.Component {
                             id={`${dimension.label}-sideType`} 
                             name={`${dimension.label}-sideType`} 
                             onChange={this.props.onClick}
+                            style={{
+                              maxWidth: "100px"
+                            }}
                             value={dimension.edgeType ? dimension.edgeType : ''}>
                             <option value="">Select side</option>
                             <option value="1">Wall</option>
@@ -96,13 +99,18 @@ export default class Dimensions extends React.Component {
                             <option value="4">Backsplash</option>
                           </select>
                         </div>
-                      <span 
+                      <article 
                         id={`${dimension.label}-warn`} 
                         name={`${dimension.label}-warn`}
-                        className="tag is-danger is-medium"
+                        className="message is-warning is-medium"
                         style={{
-                          visibility: "hidden"
-                        }}>Select side type</span>
+                          visibility: "hidden",
+                          display: "none"
+                        }}>
+                          <div className="message-body">
+                          Select side type
+                          </div>
+                        </article>
                   </div>
                   <div className="column"></div>
                 </div>

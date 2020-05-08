@@ -1,23 +1,23 @@
 {
   "items": [
     {
-      "imageName": "brazillian-yellow",
+      "imageName": "luna-pearl",
       "price": 35.00
     },
     {
-      "imageName": "cecilia",
+      "imageName": "giallo-ornamental",
       "price": 38.00
     },
     {
-      "imageName": "alaska-white",
+      "imageName": "ubatuba",
       "price": 38.00
     },
     {
-      "imageName": "st-lucia",
+      "imageName": "new-caledonia",
       "price": 38.00
     },
     {
-      "imageName": "cotton-white",
+      "imageName": "santa-cecilia",
       "price": 38.00
     },
     {
@@ -25,23 +25,11 @@
       "price": 38.00
     },
     {
-      "imageName": "silver-falls",
+      "imageName": "white-g",
       "price": 38.00
     },
     {
-      "imageName": "savanna-gold",
-      "price": 38.00
-    },
-    {
-      "imageName": "chesapeake-blue",
-      "price": 38.00
-    },
-    {
-      "imageName": "silver-cloud",
-      "price": 38.00
-    },
-    {
-      "imageName": "white-springs",
+      "imageName": "new-venetian-gold",
       "price": 38.00
     }
   ]

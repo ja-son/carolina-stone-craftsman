@@ -24,7 +24,7 @@ module.exports = {
                 [p.A, p.B],
                 [0, p.B]
             ]
-        }], errors: ['requires consultation', 'requires consultation', 'requires consultation', 'requires consultation'],
+        }], errors: ['sides greater than 72" requires consultation', 'requires consultation', 'requires consultation', 'requires consultation'],
         areaFn: function (p) {
             return p.A * p.B;
         },
