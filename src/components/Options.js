@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PreviewCompatibleImage from './PreviewCompatibleImage'
-import Overmount from '../img/overmount-bowl.jpg'
-import Undermount from '../img/undermount-bowl.jpg'
+import {  graphql, StaticQuery } from 'gatsby'
+import SinkTypes from '../../content/sink-types.json'
 
 class Options extends React.Component {
   componentDidMount() {
@@ -13,6 +13,10 @@ class Options extends React.Component {
       return null
     }
 
+    const { allFile: nodes } = this.props.data
+    const images = nodes.nodes
+    let currentOption = this.props.currentOption
+
     return (
       <div>
         <section className="hero is-primary">
@@ -22,81 +26,56 @@ class Options extends React.Component {
           </div>
         </section>
         <section className="section">
-        <div className="columns is-centered">
-          <div className="column"></div>
+        <div className="columns is-multiline">
 
-              <div className="column is-narrow">
-                <div className="card">
-                  <div className="card-header">
-                    <p className="card-header-title">
-                      Overmount Bowl
-                    </p>
-                  </div>
-                  <div className="card-image">
-                    <figure className="image">
-                      <PreviewCompatibleImage 
-                        imageInfo={{
-                          image: Overmount,
-                          alt: "overmount bowl",
-                          style: {
-                            maxWidth: "275px",
-                            marginLeft: "auto",
-                            marginRight: "auto"
-                          }
-                        }} />
-                    </figure>
-                  </div>
-                  <div className="card-content">
-                    <div className="content">
-                      <div className="select">
-                        <select name="overmountQty" onChange={this.props.onChange} value={this.props.overmountQty} >
-                          <option>0</option>
-                          <option>1</option>
-                          <option>2</option>
-                          <option>3</option>
-                        </select>
+              
+                {images &&
+                  images.map(image => (
+                    SinkTypes.items.map( (type, index) => (
+                      type.imageName === image.name ?
+                        <div className="column is-4" key={image.name}>
+                          <label className="radioImage">
+                            <input type="radio" name="currentOption" value={image.name} onChange={this.props.onChange} checked={currentOption === image.name} />
+                            <PreviewCompatibleImage
+                              imageInfo={{
+                                alt: image.name,
+                                image: image,
+                                style: {
+                                  maxWidth: "300px",
+                                  maxHeight: "225px"
+                                }
+                              }} /> 
+                          </label>
+                        </div>
+                        : ""
+                    ))
+                  ))}
+                  <div className="column is-4">
+                    <label className="radioImage">
+                      <input type="radio" name="currentOption" value="byo" onChange={this.props.onChange} checked={currentOption === "byo"} />
+                      <div className="has-text-centered" style={{
+                        padding: "20px"
+                      }}>
+                        <span className="icon is-large">
+                          <i className="fas fa-3x fa-user-alt"></i>
+                        </span>
+                        <h4>Bring Your Own</h4>
                       </div>
-                    </div>
+                    </label>
                   </div>
-                </div>
-              </div>
-              <div className="column is-narrow">
-                <div className="card">
-                  <div className="card-header">
-                    <p className="card-header-title">
-                      Undermount Bowl
-                    </p>
-                  </div>
-                  <div className="card-image">
-                    <figure className="image">
-                      <PreviewCompatibleImage 
-                        imageInfo={{
-                          image: Undermount,
-                          alt: "undermount bowl",
-                          style: {
-                            maxWidth: "275px",
-                            marginLeft: "auto",
-                            marginRight: "auto"
-                          }
-                        }} />
-                    </figure>
-                  </div>
-                  <div className="card-content">
-                    <div className="content">
-                      <div className="select">
-                        <select name="undermountQty" onChange={this.props.onChange} value={this.props.undermountQty}>
-                          <option value={0}>0</option>
-                          <option value={1}>1</option>
-                          <option value={2}>2</option>
-                          <option value={3}>3</option>
-                        </select>
+                  <div className="column is-4">
+                    <label className="radioImage">
+                      <input type="radio" name="currentOption" value="none" onChange={this.props.onChange} checked={currentOption === "none"} />
+                      <div className="has-text-centered" style={{
+                        padding: "20px"
+                      }}>
+                        <span className="icon is-large">
+                          <i className="fas fa-3x fa-ban"></i>
+                        </span>
+                        <h4>None</h4>
                       </div>
-                    </div>
+                    </label>
                   </div>
-                </div>
-              </div>
-
-            <div className="column"></div>
         </div>   
         </section>
       </div>
@@ -105,8 +84,27 @@ class Options extends React.Component {
 }
 
 Options.propTypes = {
-  overmountQty: PropTypes.number,
-  undermountQty: PropTypes.number
 }
 
-export default Options
+export default (props) => (
+  <StaticQuery
+    query={graphql`
+    {
+      allFile(
+        filter: {sourceInstanceName: {eq: "images"}, relativePath: {regex: "/sinks/"}}
+        sort: { fields: [name], order: DESC }
+      ) {
+        nodes {
+          childImageSharp {
+            fluid(maxWidth: 400, quality: 100) {
+              ...GatsbyImageSharpFluid
+            }
+          }
+          name
+        }
+      }
+    }
+  `}
+  render={(data, count) => <Options data={data} count={count} currentStep={props.currentStep} currentOption={props.currentOption} onChange={props.onChange} />}
+  />
+)

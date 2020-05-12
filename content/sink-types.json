@@ -1,0 +1,40 @@
+{
+  "items": [
+    {
+      "imageName": "205",
+      "price": 200.00
+    },
+    {
+      "imageName": "206",
+      "price": 200.00
+    },
+    {
+      "imageName": "301",
+      "price": 200.00
+    },
+    {
+      "imageName": "917_R",
+      "price": 200.00
+    },
+    {
+      "imageName": "917_L",
+      "price": 200.00
+    },
+    {
+      "imageName": "1601",
+      "price": 50.00
+    },
+    {
+      "imageName": "1602",
+      "price": 50.00
+    },
+    {
+      "imageName": "1628",
+      "price": 75.00
+    },
+    {
+      "imageName": "1629",
+      "price": 75.00
+    }
+  ]
+}

@@ -54,7 +54,7 @@ export default class Dimensions extends React.Component {
             </div>
             <div className="column is-4">
             {currentShape &&
-            currentShape.params.map((dimension) => (
+            currentShape.params.map((dimension, idx) => (
               <div className="buttons has-addons" key={`${dimension.label}-length`}>
                 <div className="columns is-mobile">
                   <div className="column"></div>
@@ -79,7 +79,7 @@ export default class Dimensions extends React.Component {
                               placeholder="[inches]" 
                               style={{ maxWidth: "60px" }} 
                               onChange={this.props.handleChange}
-                              tabIndex={10} />
+                              tabIndex={10+idx} />
                         }
                         <div 
                           className="select"
@@ -91,6 +91,7 @@ export default class Dimensions extends React.Component {
                             style={{
                               maxWidth: "100px"
                             }}
+                            tabIndex={10+idx}
                             value={dimension.edgeType ? dimension.edgeType : ''}>
                             <option value="">Select side</option>
                             <option value="1">Wall</option>

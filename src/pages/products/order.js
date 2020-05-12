@@ -123,27 +123,18 @@ export default class OrderPage extends React.Component {
 
   handleOptionsChange = event => {
     const {name, value} = event.target
-    let foundOption = false
-    this.state.options.map(option => {
-      if(option && option.name === name) {
-        option.qty = parseInt(value)
-        foundOption = true
-      }
-    })
-
-    if (!foundOption) {
-      this.state.options.push({
-        name: name,
-        qty: parseInt(value)
-      })
+    console.log(name, value)
+    if(value === "byo") {
+      this.consultBtn.current.style.display = 'block'
+      this.nextBtn.current.style.display =  'none'
+      this.consultBtn.current.scrollIntoView({behavior: "smooth"})
+    } else {
+      this.consultBtn.current.style.display = 'none'
+      this.nextBtn.current.style.display =  'block'
+      this.nextBtn.current.scrollIntoView({behavior: "smooth"})
     }
-
     this.setState({
-      [name]: parseInt(value)
-    })
-
-    this.setState({
-      options: this.state.options
+      [name]: value
     })
   }
 
@@ -282,9 +273,7 @@ export default class OrderPage extends React.Component {
 
         <Options
           currentStep={this.state.currentStep}
-          currentOptions={this.state.options}
-          overmountQty={this.state.overmountQty}
-          undermountQty={this.state.undermountQty}
+          currentOption={this.state.currentOption}
           onChange={this.handleOptionsChange}
           />
 
@@ -306,7 +295,7 @@ export default class OrderPage extends React.Component {
             shape={this.state.currentShape}
             edge={this.state.currentEdge}
             stone={this.state.currentStone}
-            options={this.state.options}
+            options={this.state.currentOption}
             onSuccess={this.handleSuccess}
             />
         </Elements>

@@ -22,9 +22,21 @@ module.exports.handler = async function(event, context) {
   let basePrice = sqft * 35; // need to get price based on stone
   let edgePrice = totalEdge * 18; // $18 per linear foot
   let backsplashPrice = totalBacksplash * 12;
-  let optionsPrice = data.details.options.reduce(function(acc, cur, index) {
-    return acc + (cur.qty * 150); // need to get options price
-  }, 0);
+  let currentOption = data.details.options;
+  let optionsPrice = 0;//data.details.options.reduce(function(acc, cur, index) {
+//    return acc + (cur.qty * 150); // need to get options price
+//  }, 0);
+  const oval = ["1601","1602"];
+  const square = ["1628","1629"];
+  const stainless = ["205","206","301","917_L", "917_R"]
+  const isMatch = (el) => currentOption === el;
+  if(oval.findIndex(isMatch) > 0) {
+    optionsPrice = 50;
+  } else if (square.findIndex(isMatch) > 0) {
+    optionsPrice = 75;
+  } else if(stainless.findIndex(isMatch) > 0) {
+    optionsPrice = 200;
+  }
   let subTotalAmount = basePrice + edgePrice + backsplashPrice + optionsPrice;
   let tax = subTotalAmount * 0.07;
   let cardProcessingFee = ((tax + subTotalAmount) * 0.029) + 0.3
