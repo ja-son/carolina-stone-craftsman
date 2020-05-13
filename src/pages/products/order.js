@@ -236,6 +236,7 @@ export default class OrderPage extends React.Component {
     }
 
     this.nextBtn.current.style.display = 'block'
+    this.consultBtn.current.style.display = "none"
     window.scrollTo(0,0)
   }
 
