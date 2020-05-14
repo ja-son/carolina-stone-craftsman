@@ -45,14 +45,16 @@ export default class Index extends React.Component {
         <section className="hero is-primary">
           <div className="hero-body">
             <h1 className="title">Schedule Consultation</h1>
+            <h2 className="subtitle">Please fill the form out below to schedule your free consultation with
+                one of our professionals.</h2>
           </div>
         </section>
         <section className="section">
-          <div className="container">
-            <div className="content">
+          <div className="columns">
+            <div className="column is-4">
               <p>
-                Please fill the form out below to schedule your free consultation with
-                one of our professionals.
+                We will contact you within 24 hours of receiving
+                your submission.
               </p>
               <form
                 name="contact"
@@ -121,21 +123,21 @@ export default class Index extends React.Component {
                   </label>
                   <div className="control">
                     <label className="radio">
-                      <input type="radio" name="{bestTime}"
+                      <input type="radio" name={'bestTime'}
                       style={{ 
                         margin: "6px"
                       }}/>
                       Morning
                     </label>
                     <label className="radio">
-                      <input type="radio" name="{bestTime}"
+                      <input type="radio" name={'bestTime'}
                       style={{
                         margin: "6px"
                       }}/>
                       Day
                     </label>
                     <label className="radio">
-                      <input type="radio" name="{bestTime}"
+                      <input type="radio" name={'bestTime'}
                       style={{
                         margin: "6px"
                       }}/>
@@ -144,12 +146,19 @@ export default class Index extends React.Component {
                   </div>
                 </div>
                 <div className="field">
+                  <label className="label" htmlFor={'comments'}>
+                    Please describe your project
+                  </label>
+                  <textarea className="textarea" name={'comments'}></textarea>
+                </div>
+                <div className="field">
                   <button className="button is-link" type="submit">
                     Send
                   </button>
                 </div>
               </form>
             </div>
+            <div className="column"></div>
           </div>
         </section>
       </Layout>
