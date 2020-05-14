@@ -29,7 +29,7 @@ class OrderReview extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.props.currentStep != 6 || this.state.error) {
+    if(this.props.currentStep !== 7 || this.state.error) {
       return
     }
 
@@ -550,7 +550,7 @@ class OrderReview extends React.Component {
   }
 
   render() {
-    if(this.props.currentStep !== 6) {
+    if(this.props.currentStep !== 7) {
       return null
     }
 

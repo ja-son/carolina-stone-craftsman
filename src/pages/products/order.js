@@ -9,6 +9,7 @@ import Options from '../../components/Options'
 import Edges from '../../components/Edges'
 import ShapeTypes from '../../components/ShapeTypes'
 import Stones from '../../components/Stones'
+import Checkout from '../../components/Checkout'
 import InjectedOrderReview from '../../components/OrderReview'
 import api from '../../components/api'
 
@@ -215,7 +216,7 @@ export default class OrderPage extends React.Component {
       this.nextBtn.current.style.display = 'none'
     }
 
-    if(this.state.currentStep + 1 === 6) {
+    if(this.state.currentStep + 1 === 7) {
       this.nextBtn.current.style.display = 'none'
       this.checkOutBtn.current.style.display = 'block'
     }
@@ -287,6 +288,10 @@ export default class OrderPage extends React.Component {
           currentStep={this.state.currentStep}
           currentStone={this.state.currentStone}
           onChange={this.handleStoneChange}
+          />
+
+        <Checkout
+          currentStep={this.state.currentStep}
           />
 
         <Elements stripe={stripePromise}>
