@@ -54,7 +54,7 @@ class Options extends React.Component {
                     <label className="radioImage">
                       <input type="radio" name="currentOption" value="byo" onChange={this.props.onChange} checked={currentOption === "byo"} />
                       <div className="has-text-centered" style={{
-                        padding: "20px"
+                        padding: "30px"
                       }}>
                         <span className="icon is-large">
                           <i className="fas fa-3x fa-user-alt"></i>
@@ -67,7 +67,7 @@ class Options extends React.Component {
                     <label className="radioImage">
                       <input type="radio" name="currentOption" value="none" onChange={this.props.onChange} checked={currentOption === "none"} />
                       <div className="has-text-centered" style={{
-                        padding: "20px"
+                        padding: "30px"
                       }}>
                         <span className="icon is-large">
                           <i className="fas fa-3x fa-ban"></i>

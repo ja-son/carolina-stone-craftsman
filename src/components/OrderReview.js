@@ -46,6 +46,7 @@ class OrderReview extends React.Component {
     }
 
     let shape = this.props.shape
+
     this.props.shape.params.map( (item, index) => {
       order.sides.push({
         label: item.label,
@@ -59,6 +60,8 @@ class OrderReview extends React.Component {
         (this.state.order.stone && this.state.order.stone !== order.stone) ||
         (this.state.order.area && this.state.order.area !== order.area) ||
         (this.state.order.edgeLength && this.state.order.edgeLength !== order.edgeLength) ||
+        (this.state.order.edge && this.state.order.edge !== order.edge) ||
+        (this.state.order.options && this.state.order.options !== order.options) ||
         (this.state.order.backsplashLength && this.state.order.backsplashLength !== order.backsplashLength) ) {
 
       api.createPaymentIntent({
@@ -333,9 +336,12 @@ class OrderReview extends React.Component {
               <div className="notification is-info is-light">
                 <strong>Before you place your order</strong>
                 <p>
-                  Primar lorem ipsum dolor sit amet, consectetur
-                  adipiscing elit lorem ipsum dolor. Pellentesque risus mi, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-                  consectetur adipiscing elit
+                  Please note that we respond to all orders 
+                  within 24 hours by phone to verify your purchase 
+                  and selections. After confirmation of your
+                  order, we provide you a lead time and 
+                  when you can expect your order to be either 
+                  delivered or picked up.
                 </p>
               </div>
             </div>
