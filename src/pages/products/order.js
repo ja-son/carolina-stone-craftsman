@@ -123,7 +123,6 @@ export default class OrderPage extends React.Component {
 
   handleOptionsChange = event => {
     const {name, value} = event.target
-    console.log(name, value)
     if(value === "byo") {
       this.consultBtn.current.style.display = 'block'
       this.nextBtn.current.style.display =  'none'

@@ -126,6 +126,14 @@ $menu-label-color: $white-ter
   flex-basis: 35%;
   margin: 0 1.5em 0 0;
 
+// font awesome
+@import "~@fortawesome/fontawesome-free/scss/_variables.scss"
+$fa-font-path: "~@fortawesome/fontawesome-free/webfonts"
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss"
+@import "~@fortawesome/fontawesome-free/scss/solid.scss"
+// font awesome overrides
+.fa-3x
+  font-size: 6em
 
 @import "~bulma/bulma.sass"
 
@@ -154,9 +162,6 @@ $menu-label-color: $white-ter
 .radioImage img,span
   cursor: pointer
 
-//.radioImage > input[type=radio]:checked + div > canvas
-//  border: 2px solid $primary
-
 .radioImage > input[type=radio]:checked + canvas
   border: 3px solid $primary
 
@@ -166,6 +171,3 @@ $menu-label-color: $white-ter
 
 .radioImage > input[type=radio]:checked + div
   border: 3px solid $primary
-
-//.card.selected
-//  border: 2px solid $primary
