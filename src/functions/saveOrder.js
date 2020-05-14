@@ -16,14 +16,9 @@ module.exports.handler = async function(event, context, callback) {
 
     const lineItems = {};
     const sides = {};
-    const options = {};
 
     data.lineItems.map( (cur, idx) => {
       lineItems[cur.name] = cur.value.toFixed(2);
-    });
-
-    data.order.options.map( (cur, idx) => {
-      options[cur.name] = cur.qty
     });
 
     data.order.sides.map( (cur, idx) => {
@@ -49,7 +44,7 @@ module.exports.handler = async function(event, context, callback) {
       edgeLength: data.order.edgeLength,
       shape: data.order.shape,
       stone: data.order.stone,
-      options: options,
+      options: data.order.options,
       metadata: data.metadata,
       iconURIData: data.order.iconURIData
     };
