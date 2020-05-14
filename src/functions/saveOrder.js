@@ -58,33 +58,49 @@ module.exports.handler = async function(event, context, callback) {
       .then((id) => {
         orderItem.id = id;
         orderItem.iconURIData = null;
-        console.log(id);
+        return orderItem;
       })
+      .then(order => {
+        return axios({
+          "method":"POST",
+          "url": process.env.ZAP_GMAIL_HOOK,
+          "headers":{
+            "content-type":"application/json",
+          },
+          "data": order
+        });
+      })
+      .then((response) => resolve({
+        statusCode: 200,
+        headers: { "content-type": "application/json" },
+        body: JSON.stringify(orderItem)
+      }))
       .catch((error) => callback(error, {
         statusCode: 400,
         body: error.message
       }));
 
-    axios({
-      "method":"POST",
-      "url": process.env.ZAP_GMAIL_HOOK,
-      "headers":{
-        "content-type":"application/json",
-      },
-      "data": orderItem
-    })
-    .then((response) => resolve({
-      statusCode: 200,
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(response.data)
-    }))
-    .catch((error) => {
-      //console.log(error);
-      return resolve({
-        statusCode: 400,
-        body: error.message
-      })
-    })
+    // axios({
+    //   "method":"POST",
+    //   "url": process.env.ZAP_GMAIL_HOOK,
+    //   "headers":{
+    //     "content-type":"application/json",
+    //   },
+    //   "data": orderItem
+    // })
+    // .then((response) => resolve({
+    //   statusCode: 200,
+    //   headers: { "content-type": "application/json" },
+    //   // body: JSON.stringify(response.data)
+    //   body: JSON.stringify(orderItem)
+    // }))
+    // .catch((error) => {
+    //   //console.log(error);
+    //   return resolve({
+    //     statusCode: 400,
+    //     body: error.message
+    //   })
+    // })
   })
 
   return promise

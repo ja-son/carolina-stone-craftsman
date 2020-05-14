@@ -152,6 +152,13 @@ class OrderReview extends React.Component {
       lineItems: this.state.lineItems,
       metadata: this.state.metadata
     })
+    .then(data => {
+      if(data) {
+        this.setState({
+          orderId: data.id
+        })
+      }
+    })
     .catch(err => {
       this.setError(err.message)
     })
@@ -239,34 +246,37 @@ class OrderReview extends React.Component {
         </div>
         <div className="columns is-mobile">
           <div className="column is-3">
-              <label className="label">Email</label>
-              {this.state.metadata ? this.state.metadata.receipt_email : ''}
+              <label className="label">Order Id</label>
+              {this.state.orderId ? this.state.orderId : ''}
           </div>
           <div className="column">
             <div className="is-pulled-left">
-              {this.state.metadata ? this.state.metadata.receipt_email : ''}
-            </div>
-          </div>
-        </div>
-        <div className="columns is-mobile">
-          <div className="column is-3">
               <label className="label">Order date</label>
               {orderDate}
-          </div>
-          <div className="column ">
-            <div className="is-pulled-left">
-              {orderDate}
             </div>
           </div>
         </div>
         <div className="columns is-mobile">
           <div className="column is-3">
-              <label className="label">Contact number</label>
-              {this.state.phone}
+            <label className="label">Customer Name</label>
+            {this.state.metadata ? this.state.metadata.shipping.name : ''}
           </div>
           <div className="column ">
             <div className="is-pulled-left">
-              {this.state.phone}
+              <label className="label">Email</label>
+              {this.state.metadata ? this.state.metadata.receipt_email : ''}              
+            </div>
+          </div>
+        </div>
+        <div className="columns is-mobile">
+          <div className="column is-3">
+            <label className="label">Total</label>
+            $ {this.state.metadata ? this.state.metadata.amount / 100 : '0.00'}
+          </div>
+          <div className="column ">
+            <div className="is-pulled-left">
+              <label className="label">Contact number</label>
+              {this.state.metadata ? this.state.metadata.shipping.phone : ''}
             </div>
           </div>
         </div>
