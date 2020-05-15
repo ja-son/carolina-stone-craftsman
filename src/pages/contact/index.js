@@ -21,7 +21,7 @@ export default class Index extends React.Component {
   }
 
   handlePhoneChange = e => {
-    
+    this.setState({phone: e})
   }
 
   handleSubmit = e => {
@@ -124,6 +124,7 @@ export default class Index extends React.Component {
                   <div className="control">
                     <label className="radio">
                       <input type="radio" name={'bestTime'}
+                      onChange={this.handleChange}
                       style={{ 
                         margin: "6px"
                       }}/>
@@ -131,6 +132,7 @@ export default class Index extends React.Component {
                     </label>
                     <label className="radio">
                       <input type="radio" name={'bestTime'}
+                      onChange={this.handleChange}
                       style={{
                         margin: "6px"
                       }}/>
@@ -138,6 +140,7 @@ export default class Index extends React.Component {
                     </label>
                     <label className="radio">
                       <input type="radio" name={'bestTime'}
+                      onChange={this.handleChange}
                       style={{
                         margin: "6px"
                       }}/>
@@ -149,7 +152,7 @@ export default class Index extends React.Component {
                   <label className="label" htmlFor={'comments'}>
                     Please describe your project
                   </label>
-                  <textarea className="textarea" name={'comments'}></textarea>
+                  <textarea className="textarea" onChange={this.handleChange} name={'comments'}></textarea>
                 </div>
                 <div className="field">
                   <button className="button is-link" type="submit">
