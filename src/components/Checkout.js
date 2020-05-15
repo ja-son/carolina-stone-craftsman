@@ -2,6 +2,28 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 class Checkout extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      deliveryOption: ''
+    }
+  }
+  handleStateChange = event => {
+    const {name, value} = event.target
+    console.log(name, value)
+    this.setState({
+      [name]: value
+    })
+  }
+
+  renderRadiusForm = () => {
+    return (
+      <div>
+        <h1>Poop</h1>
+      </div>
+    )
+  }
+
   render() {
     if(this.props.currentStep !== 6) {
       return null
@@ -20,7 +42,7 @@ class Checkout extends React.Component {
           <div className="columns">
             <div className="column">
               <label className="radioImage">
-              <input type="radio" name="deliveryOption" value="none" />
+              <input type="radio" name="deliveryOption" value="pickup" onChange={this.handleStateChange} />
               <div className="has-text-centered" style={{
                 padding: "30px"
               }}>
@@ -33,7 +55,7 @@ class Checkout extends React.Component {
             </div>
             <div className="column">
               <label className="radioImage">
-              <input type="radio" name="deliveryOption" value="none" />
+              <input type="radio" name="deliveryOption" value="delivery" onChange={this.handleStateChange} />
               <div className="has-text-centered" style={{
                 padding: "30px"
               }}>
@@ -46,7 +68,7 @@ class Checkout extends React.Component {
             </div>
             <div className="column">
               <label className="radioImage">
-              <input type="radio" name="deliveryOption" value="none" />
+              <input type="radio" name="deliveryOption" value="installed" onChange={this.handleStateChange} />
               <div className="has-text-centered" style={{
                 padding: "30px"
               }}>
@@ -60,6 +82,7 @@ class Checkout extends React.Component {
             <div className="column"></div>
           </div>
         </section>
+        {this.state.deliveryOption && this.state.deliveryOption === 'delivery' ? this.renderRadiusForm() : ''}
       </div>
     )
   }
