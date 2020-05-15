@@ -123,7 +123,7 @@ export default class Index extends React.Component {
                   </label>
                   <div className="control">
                     <label className="radio">
-                      <input type="radio" name={'bestTime'}
+                      <input type="radio" name={'bestTime'} value="morning"
                       onChange={this.handleChange}
                       style={{ 
                         margin: "6px"
@@ -131,7 +131,7 @@ export default class Index extends React.Component {
                       Morning
                     </label>
                     <label className="radio">
-                      <input type="radio" name={'bestTime'}
+                      <input type="radio" name={'bestTime'} value="day"
                       onChange={this.handleChange}
                       style={{
                         margin: "6px"
@@ -139,7 +139,7 @@ export default class Index extends React.Component {
                       Day
                     </label>
                     <label className="radio">
-                      <input type="radio" name={'bestTime'}
+                      <input type="radio" name={'bestTime'} value="evening"
                       onChange={this.handleChange}
                       style={{
                         margin: "6px"

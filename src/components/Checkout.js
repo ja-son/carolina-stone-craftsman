@@ -16,20 +16,48 @@ class Checkout extends React.Component {
           </div>
         </section>
         <section className="section">
-        <progress class="progress is-large" value="85" max="100">85%</progress>
-          <div className="control">
-            <label className="radio">
-              <input type="radio" name="deliveryOption" />
-              Pickup
+          <progress class="progress is-large" value="85" max="100">85%</progress>
+          <div className="columns">
+            <div className="column">
+              <label className="radioImage">
+              <input type="radio" name="deliveryOption" value="none" />
+              <div className="has-text-centered" style={{
+                padding: "30px"
+              }}>
+                <span className="icon is-large">
+                  <i className="fas fa-3x fa-people-carry"></i>
+                </span>
+                <h4>Pickup</h4>
+              </div>
             </label>
-            <label className="radio">
-              <input type="radio" name="deliveryOption" />
-              Delivery
+            </div>
+            <div className="column">
+              <label className="radioImage">
+              <input type="radio" name="deliveryOption" value="none" />
+              <div className="has-text-centered" style={{
+                padding: "30px"
+              }}>
+                <span className="icon is-large">
+                  <i className="fas fa-3x fa-truck"></i>
+                </span>
+                <h4>Delivery</h4>
+              </div>
             </label>
-            <label className="radio">
-              <input type="radio" name="deliveryOption" />
-              Installed
+            </div>
+            <div className="column">
+              <label className="radioImage">
+              <input type="radio" name="deliveryOption" value="none" />
+              <div className="has-text-centered" style={{
+                padding: "30px"
+              }}>
+                <span className="icon is-large">
+                  <i className="fas fa-3x fa-tools"></i>
+                </span>
+                <h4>Installed</h4>
+              </div>
             </label>
+            </div>
+            <div className="column"></div>
           </div>
         </section>
       </div>
