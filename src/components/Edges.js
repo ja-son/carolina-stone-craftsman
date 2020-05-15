@@ -20,6 +20,8 @@ class Edges extends React.Component {
           </div>
         </section>
         <section className="section">
+        <progress class="progress is-large" value="57" max="100">57%</progress>
+
           <div className="columns">
             <div className="column"></div>
             <div className="column is-7">

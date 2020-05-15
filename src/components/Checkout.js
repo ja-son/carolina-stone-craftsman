@@ -16,6 +16,7 @@ class Checkout extends React.Component {
           </div>
         </section>
         <section className="section">
+        <progress class="progress is-large" value="85" max="100">85%</progress>
           <div className="control">
             <label className="radio">
               <input type="radio" name="deliveryOption" />

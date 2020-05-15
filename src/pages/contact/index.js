@@ -57,7 +57,7 @@ export default class Index extends React.Component {
                 your submission.
               </p>
               <form
-                name="contact"
+                name="consultation"
                 method="post"
                 action="/contact/thanks/"
                 data-netlify="true"
