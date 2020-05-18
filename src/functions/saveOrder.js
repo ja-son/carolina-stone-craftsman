@@ -46,7 +46,8 @@ module.exports.handler = async function(event, context, callback) {
       stone: data.order.stone,
       options: data.order.options,
       metadata: data.metadata,
-      iconURIData: data.order.iconURIData
+      iconURIData: data.order.iconURIData,
+      deliveryOption: data.order.deliveryOption
     };
 
     const q = faunadb.query;

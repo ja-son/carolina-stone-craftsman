@@ -84,10 +84,36 @@ const saveOrder = async options => {
     });
 };
 
+const canDeliver = async options => {
+  return window
+  .fetch(`/.netlify/functions/zipcodeDistance?zip=${options}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => {
+    if (res.status === 200) {
+      console.log(res)
+      return res.json();
+    } else {
+      return null;
+    }
+  })
+  .then(data => {
+    if (!data || data.error) {
+      throw Error("API Error");
+    } else {
+      return data.canDeliver;
+    }
+  });
+}
+
 const api = {
   createPaymentIntent,
   getPublicStripeKey: getPublicStripeKey,
-  saveOrder: saveOrder
+  saveOrder: saveOrder,
+  canDeliver: canDeliver
 };
 
 export default api;

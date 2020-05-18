@@ -24,7 +24,7 @@ export default class Dimensions extends React.Component {
           </div>
         </section>
         <section className="section">
-        <progress class="progress is-large" value="29" max="100">29%</progress>
+        <progress className="progress is-large" value="29" max="100">29%</progress>
           <div className="columns ">
             {/* <div className="column"></div> */}
             <div className="column is-4">

@@ -37,6 +37,7 @@ class OrderReview extends React.Component {
       stone: this.props.stone,
       edge: this.props.edge,
       options: this.props.options,
+      deliveryOption: this.props.deliveryOption,
       area: this.props.shape.getArea(),
       edgeLength: this.props.shape.getTotalEdgeLength(),
       backsplashLength: this.props.shape.getTotalBacksplashLength(),
@@ -579,6 +580,7 @@ const InjectedOrderReview = (props) => {
           edge={props.edge}
           stone={props.stone}
           options={props.options} 
+          deliveryOption={props.deliveryOption}
           onSuccess={props.onSuccess}
           />
       )}

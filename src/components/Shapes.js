@@ -18,7 +18,7 @@ class Shapes extends React.Component {
           </div>
         </section>
         <section className="section">
-        <progress class="progress is-large" value="14" max="100">14%</progress>
+        <progress className="progress is-large" value="14" max="100">14%</progress>
 
           <div className="columns is-mobile is-centered">
             <div className="column is-half-desktop">

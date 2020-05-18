@@ -26,7 +26,7 @@ class Options extends React.Component {
           </div>
         </section>
         <section className="section">
-        <progress class="progress is-large" value="43" max="100">43%</progress>
+        <progress className="progress is-large" value="43" max="100">43%</progress>
         <div className="columns is-multiline">
 
               

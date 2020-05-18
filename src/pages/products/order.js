@@ -23,7 +23,9 @@ export default class OrderPage extends React.Component {
       shape: '',
       options: [],
       currentEdge: '',
-      currentStone: ''
+      currentStone: '',
+      deliveryOption: '',
+      canDeliver: false
     }
 
     this.backBtn = React.createRef()
@@ -40,6 +42,7 @@ export default class OrderPage extends React.Component {
     this.handleStoneChange = this.handleStoneChange.bind(this)
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this)
     this.handleSuccess = this.handleSuccess.bind(this)
+    this.handleDelivery = this.handleDelivery.bind(this)
   }
 
   handleShapeGeneration = event => {
@@ -195,7 +198,7 @@ export default class OrderPage extends React.Component {
   }
 
   handleValidation() {
-    if(this.state.currentStep == 2) {
+    if(this.state.currentStep === 2) {
       return this.performEdgeValidation()
     } else {
       return true
@@ -212,7 +215,8 @@ export default class OrderPage extends React.Component {
 
     if(this.state.currentStep + 1 >= 4 &&
       (this.state.currentEdge === "" ||
-        this.state.currentStone === "")) {
+        this.state.currentStone === "" ||
+        this.state.canDeliver === false)) {
       this.nextBtn.current.style.display = 'none'
     }
 
@@ -254,6 +258,23 @@ export default class OrderPage extends React.Component {
     } catch (e) {}
   }
 
+  handleDelivery = event => {
+    this.setState({
+      deliveryOption: event.deliveryOption,
+      canDeliver: event.canDeliver
+    })
+    if(event.canDeliver) {
+      this.nextBtn.current.style.display = 'block'
+      this.consultBtn.current.style.display = 'none'
+    } else if (event.deliveryOption === 'installed') {
+      this.nextBtn.current.style.display = 'none'
+      this.consultBtn.current.style.display = 'block'
+    } else {
+      this.nextBtn.current.style.display = 'none'
+      this.consultBtn.current.style.display = 'none'
+    }
+  }
+
   render() {
     const { currentShape } = this.state
 
@@ -292,6 +313,7 @@ export default class OrderPage extends React.Component {
 
         <Checkout
           currentStep={this.state.currentStep}
+          onChange={this.handleDelivery}
           />
 
         <Elements stripe={stripePromise}>
@@ -301,6 +323,7 @@ export default class OrderPage extends React.Component {
             edge={this.state.currentEdge}
             stone={this.state.currentStone}
             options={this.state.currentOption}
+            deliveryOption={this.state.deliveryOption}
             onSuccess={this.handleSuccess}
             />
         </Elements>
