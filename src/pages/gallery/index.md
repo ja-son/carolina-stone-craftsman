@@ -2,7 +2,7 @@
 templateKey: 'product-page'
 path: /gallery
 title: Our Past Projects
-image: /img/home-jumbotron1.jpg
+image: /img/home-jumbotron3.jpg
 heading: Ideas Become Reality
 description: >-
   You have a vision of what your dream kitchen or bath should look like.
