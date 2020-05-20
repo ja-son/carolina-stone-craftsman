@@ -48,7 +48,7 @@
     "start": "run-p start:**",
     "start:app": "npm run develop",
     "start:lambda": "netlify-lambda serve src/functions",
-    "build": "GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages && netlify-lambda build src/functions",
+    "build": "gatsby build && netlify-lambda build src/functions",
     "build:app": "gatsby build",
     "build:lambda": "netlify-lambda build src/functions",
     "develop": "npm run clean && gatsby develop",
