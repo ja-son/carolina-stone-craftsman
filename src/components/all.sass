@@ -47,7 +47,7 @@ $black: #2b2523
     width: 100vw
     height: 350px
     background-size: cover
-    background-position: bottom
+    //background-position: 0px -400px
     display: flex
     //justify-content: center
     align-items: center
@@ -149,6 +149,16 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts"
     text-align: center;
     max-width: 70%;
     margin: 0 0 1em;
+  .full-width-image
+    background-position: center;
+
++tablet
+  .full-width-image
+    background-position: 0px -300px;
+
++fullhd
+  .full-width-image
+    background-position: 0px -400px;
 
 .section
   padding: 1rem 1.5rem

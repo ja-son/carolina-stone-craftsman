@@ -17,7 +17,7 @@ module.exports = {
   siteMetadata: {
     title: 'Carolina Stone Craftsman',
     description:
-      'This repo contains an example business website that is built with Gatsby, and Netlify CMS.It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.',
+      'Looking for the best deal on granite countertops? Carolina Stone Craftsman provides the highest quality kitchen or bath counters at affordable prices.',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

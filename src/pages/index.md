@@ -8,38 +8,37 @@ phone: 803-408-3456
 mainpitch:
   title: Why Carolina Stone Craftsman
   description: >
-    Our experienced Stone craftsmen are highly trained and work in teams to guide you through the process from design, fabrication, and installation.  Whether it be for new construction or a remodel we provide the latest techniques and professional staff to make your project as stress-free as possible.
+    Our experienced stone craftsmen are highly trained and work in teams to guide you through the process from design, fabrication, and installation.  Whether it be for new construction or a remodel we provide the latest techniques and professional staff to make your project as stress-free as possible.
 description: >-
   The gentleman who brought you high quality stone work at Ethen Del Priore Stonecraftsman LLC, has purchased the business formerly known as Rock Ye Tops and reopened as Carolina Stone Craftsman. Ethen Del Priore Stonecraftsman and Rock Ye Tops have serviced the greater Columbia area and the state of South Carolina for over 20 years. Although the name has changed, the core values and quality workmanship remain.  At Carolina Stone Craftsman our team of dedicated professionals strive to provide high quality work with the personal attention that you expect from a family owned and operated business.
 intro:
   blurbs:
-    - image: /img/coffee.png
+    - image: /img/gallery/calcatta-quartz-counter.png
       text: >
-        We sell green and roasted coffee beans that are sourced directly from
-        independent farmers and farm cooperatives. We’re proud to offer a
-        variety of coffee beans grown with great care for the environment and
-        local communities. Check our post or contact us directly for current
-        availability.
-    - image: /img/coffee-gear.png
+        Granite's natural beauty along with its durability, resistance to heat,
+        and low maintenance makes it a popular choice of stone. When sealed, 
+        granite is more resistant to stains and bacteria than laminte, tile, or
+        concrete. Choosing granite counters will save you money over time and
+        add elegance to any kitchen or bath room.
+        
+    - image: /img/gallery/rustic-counter-3.png
       text: >
-        We offer a small, but carefully curated selection of brewing gear and
-        tools for every taste and experience level. No matter if you roast your
-        own beans or just bought your first french press, you’ll find a gadget
-        to fall in love with in our shop.
-    - image: /img/tutorials.png
+        We understand that a kitchen or bath project can be a significant investment.
+        This is why we make it our priorty to provide the most affordable granite, quartz,
+        and marble while delivering the highest quality counters and service you expect.
+        
+    - image: /img/gallery/stone-outdoor-kitchen-1.png
       text: >
-        Love a great cup of coffee, but never knew how to make one? Bought a
-        fancy new Chemex but have no clue how to use it? Don't worry, we’re here
-        to help. You can schedule a custom 1-on-1 consultation with our baristas
-        to learn anything you want to know about coffee roasting and brewing.
-        Email us or call the store for details.
-    - image: /img/meeting-space.png
+        A kitchen or bath that is non-functioning is annoying. We are committed to 
+        the quickest turn around time possible. You can expect a turn around of a
+        couple of days to a couple of weeks based on your project. Rest assured we
+        make every effort to shorten this time as much as possible without sacrificing
+        quality.
+    - image: /img/kitchen-designers.png
       text: >
-        We believe that good coffee has the power to bring people together.
-        That’s why we decided to turn a corner of our shop into a cozy meeting
-        space where you can hang out with fellow coffee lovers and learn about
-        coffee making techniques. All of the artwork on display there is for
-        sale. The full price you pay goes to the artist.
+        The scope of applications that our team of professionals can offer consultation
+        are numerous. Our stone craftsmen provide fabrication and installation of countertops, vanities, tub surrounds, showers, fireplaces, sinks, and wall cladding.
+        We use an assortment of stone including granite, marble, and quartz.
   heading: What we offer
   description: >
     Kaldi is the ultimate spot for coffee lovers who want to learn about their
@@ -62,4 +61,17 @@ main:
   image3:
     alt: Coffee beans
     image: /img/products-grid1.jpg
+testimonials:
+  - author: Stacey Templin, Prosperity
+    quote: >-
+      Great stone work and excellent customer service!
+  - author: Jesse Sturgess, West Columbia 
+    quote: >-
+      Carolina Stone Craftsman is very experienced and hands on. Pays close attention to details and customer service is excellent.
+  - author: Julie Reinburg, Camden
+    quote: >-
+      Excellent and lightning fast service. Needed them for a repair and was impressed. Would love to hire for some other projects down the road.
+  - author: Valerie Aiello, Columbia
+    quote: >-
+      Had my first granite install today and I am extremely happy with the product, service and price! Highly recommend!!!
 ---
