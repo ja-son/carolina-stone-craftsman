@@ -1,4 +1,14 @@
 const { createProxyMiddleware } = require("http-proxy-middleware")
+// env setting for netlify preview
+const {
+  NODE_ENV,
+  URL: NETLIFY_SITE_URL = 'https://carolinastonecraftsman.netlify.app',
+  DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
+  CONTEXT: NETLIFY_ENV = NODE_ENV
+} = process.env;
+
+const isNetlifyProduction = NETLIFY_ENV === 'production';
+const siteUrl = isNetlifyProduction ? NETLIFY_SITE_URL : NETLIFY_DEPLOY_URL;
 
 module.exports = {
   // for avoiding CORS while developing Netlify Functions locally
@@ -14,10 +24,12 @@ module.exports = {
       })
     )
   },
+  pathPrefix: process.env.CI ? `/${name}` : '/',
   siteMetadata: {
     title: 'Carolina Stone Craftsman',
     description:
       'Looking for the best deal on granite countertops? Carolina Stone Craftsman provides the highest quality kitchen or bath counters at affordable prices.',
+    siteUrl
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -73,6 +85,37 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        output: '/sitemap.xml',
+        exclude: ['/order/*', '/admin/*'],
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              edges {
+                node {
+                  path
+                }
+              }
+            }
+        }`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'carolinastonecraftsman.netlify.app',
+        policy: [
+          { userAgent: '*', disallow: '/admin/*'},
+        ]
+      }
     },
     {
       resolve: 'gatsby-plugin-exclude',
