@@ -1,19 +1,97 @@
 ---
-templateKey: 'about-page'
+templateKey: 'product-page'
 path: /about
-title: About our values
+title: Our Process
+image: /img/home-jumbotron1.jpg
+heading: Ideas Become Reality
+description: >-
+  You have a vision of what your dream kitchen or bath should look like.
+  Your vision is unique to you and we take pride in helping your ideas
+  become reality. We will help you create the custom kitchen or bath that
+  you have always wanted.
+intro:
+  blurbs:
+    - image: /img/gallery/quartz-counter.png
+      text: >
+        Each countertop we fabricate is individual and specific to you. We
+        work with you to design a countertop that meets your needs and
+        gives your kitchen or bath the look you want at the most affodable
+        price.
+    - image: /img/gallery/dark-kitchen-counter-1.png
+      text: >
+        Start your kitchen or bath project by first choosing the shape or
+        style you are looking for. Then choose the size that fits your 
+        requirements.
+    - image: /img/gallery/black-marble-counter-1.png
+      text: >
+        After selecting a shape and size, choose from a variety of edge
+        styles and optionally choose a quality sink. Next choose the stone
+        color that best suits the look you are going for.
+    - image: /img/gallery/rustic-counter-2.png
+      text: >
+        Our stone craftsmen will then take your specifications to cut and 
+        polish your coutnertop, vanity, table top, or other stonework to
+        produce gorgeous results.
+  heading: What we offer
+  description: >
+    Kaldi is the ultimate spot for coffee lovers who want to learn about their
+    java’s origin and support the farmers that grew it. We take coffee
+    production, roasting and brewing seriously and we’re glad to pass that
+    knowledge to anyone. This is an edit via identity...
+main:
+  heading: Great countertops with no compromises
+  description: >
+    We hold our work to the highest standards from our customers idea to fabrication and installation. That’s why we’re meticulous and transparent about each step of the process. We personally visit each of our suppliers to make sure the stone surfaces we
+    purchase are superb quality.
+  image1:
+    alt: Granite kitchen countertop and island fabricated using bordeaux granite
+    image: /img/gallery/bordeaux-granite-counter-1.png
+  image2:
+    alt: A marble kitchen countertop and island fabricated using donna sanda marble
+    image: /img/gallery/donna-sandra-marble-counter.png
+  image3:
+    alt: A kitchen counter and island using giallo ornamental granite
+    image: /img/gallery/giallo-ornamental-counter-1.png
+testimonials:
+  - author: Stacey Templin
+    quote: >-
+      Great stone work and excellent customer service!
+  - author: Jesse Sturgess
+    quote: >-
+      Carolina Stone Craftsman is very experienced and hands on. Pays close attention to details and customer service is excellent.
+  - author: Julie Reinburg
+    quote: >-
+      Excellent and lightning fast service. Needed them for a repair and was impressed. Would love to hire for some other projects down the road.
+  - author: Valerie Aiello
+    quote: >-
+      Had my first granite install today and I am extremely happy with the product, service and price! Highly recommend!!!
+full_image: /img/products-full-width.jpg
+pricing:
+  heading: Monthly subscriptions
+  description: >-
+    We make it easy to make great coffee a part of your life. Choose one of our
+    monthly subscription plans to receive great coffee at your doorstep each
+    month. Contact us about more details and payment info.
+  plans:
+    - description: Perfect for the drinker who likes to enjoy 1-2 cups per day.
+      items:
+        - 3 lbs of coffee per month
+        - Green or roasted beans"
+        - One or two varieties of beans"
+      plan: Small
+      price: '50'
+    - description: 'Great for avid drinkers, java-loving couples and bigger crowds'
+      items:
+        - 6 lbs of coffee per month
+        - Green or roasted beans
+        - Up to 4 different varieties of beans
+      plan: Big
+      price: '80'
+    - description: Want a few tiny batches from different varieties? Try our custom plan
+      items:
+        - Whatever you need
+        - Green or roasted beans
+        - Unlimited varieties
+      plan: Custom
+      price: '??'
 ---
-### Shade-grown coffee
-Coffee is a small tree or shrub that grows in the forest understory in its wild form, and traditionally was grown commercially under other trees that provided shade. The forest-like structure of shade coffee farms provides habitat for a great number of migratory and resident species.
-
-### Single origin
-Single-origin coffee is coffee grown within a single known geographic origin. Sometimes, this is a single farm or a specific collection of beans from a single country. The name of the coffee is then usually the place it was grown to whatever degree available.
-
-### Sustainable farming
-Sustainable agriculture is farming in sustainable ways based on an understanding of ecosystem services, the study of relationships between organisms and their environment. What grows where and how it is grown are a matter of choice and careful consideration for nature and communities.
-
-### Direct sourcing
-Direct trade is a form of sourcing practiced by some coffee roasters. Advocates of direct trade practices promote direct communication and price negotiation between buyer and farmer, along with systems that encourage and incentivize quality.
-
-### Reinvest profits
-We want to truly empower the communities that bring amazing coffee to you. That’s why we reinvest 20% of our profits into farms, local businesses and schools everywhere our coffee is grown. You can see the communities grow and learn more about coffee farming on our blog.

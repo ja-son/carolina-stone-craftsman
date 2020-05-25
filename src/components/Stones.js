@@ -87,7 +87,7 @@ export default (props) => (
   <StaticQuery
     query={graphql`
     {
-      allFile(filter: {sourceInstanceName: {eq: "images"}, relativePath: {regex: "/stones/"}}) {
+      allFile(filter: {sourceInstanceName: {eq: "images"}, relativePath: {regex: "/stones/"}}, sort: {fields: [name], order: DESC}) {
         nodes {
           childImageSharp {
             fluid(maxWidth: 400, quality: 100) {

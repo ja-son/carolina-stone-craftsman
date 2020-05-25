@@ -13,7 +13,7 @@ description: >-
   The gentleman who brought you high quality stone work at Ethen Del Priore Stonecraftsman LLC, has purchased the business formerly known as Rock Ye Tops and reopened as Carolina Stone Craftsman. Ethen Del Priore Stonecraftsman and Rock Ye Tops have serviced the greater Columbia area and the state of South Carolina for over 20 years. Although the name has changed, the core values and quality workmanship remain.  At Carolina Stone Craftsman our team of dedicated professionals strive to provide high quality work with the personal attention that you expect from a family owned and operated business.
 intro:
   blurbs:
-    - image: /img/gallery/calcatta-quartz-counter.png
+    - image: /img/gallery/IMG_2243.JPG
       text: >
         Granite's natural beauty along with its durability, resistance to heat,
         and low maintenance makes it a popular choice of stone. When sealed, 
@@ -21,20 +21,20 @@ intro:
         concrete. Choosing granite counters will save you money over time and
         add elegance to any kitchen or bath room.
         
-    - image: /img/gallery/rustic-counter-3.png
+    - image: /img/gallery/IMG_2253.JPG
       text: >
         We understand that a kitchen or bath project can be a significant investment.
         This is why we make it our priorty to provide the most affordable granite, quartz,
         and marble while delivering the highest quality counters and service you expect.
         
-    - image: /img/gallery/stone-outdoor-kitchen-1.png
+    - image: /img/gallery/IMG_2307.JPG
       text: >
         A kitchen or bath that is non-functioning is annoying. We are committed to 
         the quickest turn around time possible. You can expect a turn around of a
         couple of days to a couple of weeks based on your project. Rest assured we
         make every effort to shorten this time as much as possible without sacrificing
         quality.
-    - image: /img/kitchen-designers.png
+    - image: /img/gallery/IMG_2258.JPG
       text: >
         The scope of applications that our team of professionals can offer consultation
         are numerous. Our stone craftsmen provide fabrication and installation of countertops, vanities, tub surrounds, showers, fireplaces, sinks, and wall cladding.

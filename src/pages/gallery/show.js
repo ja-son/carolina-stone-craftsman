@@ -41,7 +41,7 @@ const GalleryPage = ({ data }) => {
 export const query = graphql`
   query ImagesForGallery {
     images: allFile(
-      filter: { sourceInstanceName: {eq: "uploads"}, relativeDirectory: { eq: "gallery" } }
+      filter: { sourceInstanceName: {eq: "uploads"}, relativeDirectory: { eq: "gallery" }, name: { regex: "/IMG/"} }
       sort: { fields: name }
     ) {
       edges {

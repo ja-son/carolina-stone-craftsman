@@ -13,7 +13,7 @@ class Shapes extends React.Component {
       <div>
         <section className="hero is-primary">
           <div className="hero-body">
-            <h1 className="title">Choose a counter top shape</h1>
+            <h1 className="title">Choose a countertop or vanity shape</h1>
             <h2 className="subtitle">We have a variety of options to fit your needs</h2>
           </div>
         </section>

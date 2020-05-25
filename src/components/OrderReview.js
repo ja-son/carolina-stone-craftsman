@@ -57,7 +57,16 @@ class OrderReview extends React.Component {
       })
     })
 
+    let sidesChanged = false
+
+    if(this.state.order.sides) {
+      this.state.order.sides.map( (item, index) => {
+        sidesChanged = sidesChanged === false && order.sides[index].edgeType != item.edgeType  
+      })
+    }
+
     if(this.state.amount === 0 || 
+        (sidesChanged === true) ||
         (this.state.order.stone && this.state.order.stone !== order.stone) ||
         (this.state.order.area && this.state.order.area !== order.area) ||
         (this.state.order.edgeLength && this.state.order.edgeLength !== order.edgeLength) ||

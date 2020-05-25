@@ -51,6 +51,7 @@ export default class Index extends React.Component {
         </section>
         <section className="section">
           <div className="columns">
+            <div className="column"></div>
             <div className="column is-4">
               <p>
                 We will contact you within 24 hours of receiving
@@ -161,6 +162,7 @@ export default class Index extends React.Component {
                 </div>
               </form>
             </div>
+            <div className="column is-4"></div>
             <div className="column"></div>
           </div>
         </section>

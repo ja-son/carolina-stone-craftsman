@@ -20,7 +20,7 @@ export default class Dimensions extends React.Component {
         <section className="hero is-primary">
           <div className="hero-body">
             <h1 className="title">Enter dimension and select side type</h1>
-            <h2 className="subtitle">Be sure to watch our video on how to correctly measure your counter top</h2>
+            <h2 className="subtitle">Be sure to watch our video on how to correctly measure your counter top or vanity</h2>
           </div>
         </section>
         <section className="section">
@@ -34,9 +34,9 @@ export default class Dimensions extends React.Component {
                   <iframe className="has-ratio" src="https://www.youtube.com/embed/8sLQpMKJoQ8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                   </figure>
                   <p>
-                    Primar lorem ipsum dolor sit amet, consectetur
-                    adipiscing elit lorem ipsum dolor. Pellentesque risus mi, tempus quis placerat ut, porta nec nulla. Vestibulum rhoncus ac ex sit amet fringilla. Nullam gravida purus diam, et dictum <a>felis venenatis</a> efficitur. Sit amet,
-                    consectetur adipiscing elit
+                    Watch this video to learn exactly how to measure the dimensions of your
+                    next kitchen counter or bathroom vanity. We recommend taking measurements
+                    more than once to ensure your dimensions are accurate.
                   </p>
                 </div>
             </div>
