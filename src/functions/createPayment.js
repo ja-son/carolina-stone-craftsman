@@ -2,7 +2,9 @@
 require('dotenv').config({
   path: `.env.${process.env.NODE_ENV}`
 })
-const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY);
+const stripe = require('stripe')(process.env.STRIPE_PRIVATE_KEY, {
+  maxNetworkRetries: 2
+});
 
 module.exports.handler = async function(event, context) {
   // Only allow POST
