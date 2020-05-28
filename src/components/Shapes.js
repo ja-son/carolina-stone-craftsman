@@ -14,7 +14,7 @@ class Shapes extends React.Component {
         <section className="hero is-primary">
           <div className="hero-body">
             <h1 className="title">Choose a countertop or vanity shape</h1>
-            <h2 className="subtitle">We have a variety of options to fit your needs</h2>
+            <h2 className="subtitle">We have a variety of options to fit your needs. Note, all polished edges ending in a corner will be in a 1 inch radius.</h2>
           </div>
         </section>
         <section className="section">
