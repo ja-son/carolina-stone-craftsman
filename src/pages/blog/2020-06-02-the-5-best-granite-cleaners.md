@@ -1,7 +1,7 @@
 ---
 templateKey: blog-post
 title: The 5 Best Granite Cleaners
-date: 2017-01-04T15:04:10.000Z
+date: 2020-06-02T15:04:10.000Z
 description: Granite is a popular choice of countertop material in many homes.
   There is a lot to love about it. From its aesthetic appeal to its hardy
   nature, the reasons for loving granite surfaces are many and varied.
