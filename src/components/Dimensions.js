@@ -56,11 +56,11 @@ export default class Dimensions extends React.Component {
             <div className="column is-4">
             {currentShape &&
             currentShape.params.map((dimension, idx) => (
-              <div className="buttons has-addons" key={`${dimension.label}-length`}>
-                <div className="columns is-mobile">
-                  <div className="column"></div>
-                  <div className="column is-10">
+              <div className="field has-addons" key={`${dimension.label}-length`}>
+                  <div className="control">
                         <button className="button is-static">{dimension.label}</button>
+                  </div>
+                  <div className="control">
                         { !dimension.isEditable
                           ? <input 
                               id={`${dimension.label}-length`} 
@@ -68,7 +68,6 @@ export default class Dimensions extends React.Component {
                               value={dimension.value ? dimension.value : ''}
                               className="input" 
                               type="number" 
-                              style={{ maxWidth: "60px" }}
                               disabled />
                           : <input 
                               id={`${dimension.label}-length`} 
@@ -76,12 +75,14 @@ export default class Dimensions extends React.Component {
                               value={dimension.value ? dimension.value > maxLength ? '' : dimension.value : ''}
                               className="input" 
                               type="number" 
+                              step="any"
                               min={0}
                               placeholder="[inches]" 
-                              style={{ maxWidth: "60px" }} 
                               onChange={this.props.handleChange}
                               tabIndex={10+idx} />
                         }
+                  </div>
+                  <div className="control">
                         <div 
                           className="select"
                           id={`${dimension.label}-sideTypeDiv`}>
@@ -89,15 +90,12 @@ export default class Dimensions extends React.Component {
                             id={`${dimension.label}-sideType`} 
                             name={`${dimension.label}-sideType`} 
                             onChange={this.props.onClick}
-                            style={{
-                              maxWidth: "100px"
-                            }}
                             tabIndex={10+idx}
                             value={dimension.edgeType ? dimension.edgeType : ''}>
                             <option value="">Select side</option>
                             <option value="1">Wall</option>
                             <option value="2">Appliance</option>
-                            <option value="3">Edge</option>
+                            <option value="3">Polished Edge</option>
                             <option value="4">Backsplash</option>
                           </select>
                         </div>
@@ -114,9 +112,7 @@ export default class Dimensions extends React.Component {
                           </div>
                         </article>
                   </div>
-                  <div className="column"></div>
                 </div>
-              </div>
             ))}
             </div>
             <div className="column"></div>

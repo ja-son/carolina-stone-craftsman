@@ -2,34 +2,42 @@
   "items": [
     {
       "imageName": "luna-pearl",
+      "name": "Luna Pearl",
       "price": 35.00
     },
     {
       "imageName": "giallo-ornamental",
+      "name": "Giallo Ornamental",
       "price": 38.00
     },
     {
       "imageName": "ubatuba",
+      "name": "Ubatuba",
       "price": 38.00
     },
     {
       "imageName": "new-caledonia",
+      "name": "New Caledonia",
       "price": 38.00
     },
     {
       "imageName": "santa-cecilia",
+      "name": "Santa Cecilia",
       "price": 38.00
     },
     {
       "imageName": "azul-platino",
+      "name": "Azul Platino",
       "price": 38.00
     },
     {
       "imageName": "white-g",
+      "name": "White G",
       "price": 38.00
     },
     {
       "imageName": "new-venetian-gold",
+      "name": "New Venetian Gold",
       "price": 38.00
     }
   ]

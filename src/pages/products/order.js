@@ -93,7 +93,7 @@ export default class OrderPage extends React.Component {
     const vals = name.split('-')
     const dimensionName = vals[0]
     const index = this.state.currentShapeType.params.indexOf(dimensionName)
-    this.state.currentShape.params[index].value = parseInt(value);
+    this.state.currentShape.params[index].value = parseFloat(value);
     this.setState({
       currentShape: this.state.currentShape
     })
