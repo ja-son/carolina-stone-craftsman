@@ -24,7 +24,8 @@ module.exports = {
       })
     )
   },
-  pathPrefix: process.env.CI ? `/${name}` : '/',
+  //pathPrefix: process.env.CI ? `/${name}` : '/',
+  pathPrefix: '/',
   siteMetadata: {
     title: 'Carolina Stone Craftsman',
     description:
