@@ -28,16 +28,17 @@ module.exports.handler = async function(event, context) {
   let optionsPrice = 0;//data.details.options.reduce(function(acc, cur, index) {
 //    return acc + (cur.qty * 150); // need to get options price
 //  }, 0);
+  let qty = parseInt(data.details.quantity);
   const oval = ["1601","1602"];
   const square = ["1628","1629"];
   const stainless = ["205","206","301","917_L", "917_R"]
   const isMatch = (el) => currentOption === el;
   if(oval.findIndex(isMatch) > 0) {
-    optionsPrice = 50;
+    optionsPrice = 50 * qty;
   } else if (square.findIndex(isMatch) > 0) {
-    optionsPrice = 75;
+    optionsPrice = 75 * qty;
   } else if(stainless.findIndex(isMatch) > 0) {
-    optionsPrice = 200;
+    optionsPrice = 200 * qty;
   }
   let subTotalAmount = basePrice + edgePrice + backsplashPrice + optionsPrice;
   let tax = subTotalAmount * 0.07;
@@ -59,7 +60,7 @@ module.exports.handler = async function(event, context) {
     { name: "Base Price", value: basePrice },
     { name: "Edge", value: edgePrice },
     { name: "4\" Backsplash", value: backsplashPrice },
-    { name: "Sink Cutout", value: optionsPrice },
+    { name: "Sink(s) & Cutout", value: optionsPrice },
     { name: "Total", value: subTotalAmount },
     { name: "Tax", value: tax },
     { name: "Handling", value: cardProcessingFee }

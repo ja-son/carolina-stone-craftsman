@@ -6,7 +6,7 @@ import StoneTypes from '../../content/stone-types.json'
 
 class Stones extends React.Component {
   render() {
-    if(this.props.currentStep !== 5) {
+    if(this.props.currentStep !== 6) {
       return null
     }
 
@@ -43,13 +43,14 @@ class Stones extends React.Component {
                                   <input type="radio" name="currentStone" value={image.name} onChange={this.props.onChange} checked={currentStone === image.name} />
                                   <PreviewCompatibleImage
                                     imageInfo={{
-                                      alt: image.name,
+                                      alt: type.name,
                                       image: image,
                                       style: {
                                         maxWidth: "300px",
                                         maxHeight: "225px"
                                       }
                                     }} /> 
+                                    <h4>{type.name}</h4>
                                 </label>
                               </figure>
                             {/* </div>

@@ -6,6 +6,7 @@ import Layout from '../../components/Layout'
 import Shapes from '../../components/Shapes'
 import Dimensions from '../../components/Dimensions'
 import Options from '../../components/Options'
+import SinkPlacement from '../../components/SinkPlacement'
 import Edges from '../../components/Edges'
 import ShapeTypes from '../../components/ShapeTypes'
 import Stones from '../../components/Stones'
@@ -22,6 +23,8 @@ export default class OrderPage extends React.Component {
       currentStep: 1,
       shape: '',
       options: [],
+      quantity: "0",
+      sinkOffsets: [],
       currentEdge: '',
       currentStone: '',
       deliveryOption: '',
@@ -43,6 +46,7 @@ export default class OrderPage extends React.Component {
     this.handleCheckOutClick = this.handleCheckOutClick.bind(this)
     this.handleSuccess = this.handleSuccess.bind(this)
     this.handleDelivery = this.handleDelivery.bind(this)
+    this.handleSinkPlacement = this.handleSinkPlacement.bind(this)
   }
 
   handleShapeGeneration = event => {
@@ -133,8 +137,19 @@ export default class OrderPage extends React.Component {
       this.consultBtn.current.scrollIntoView({behavior: "smooth"})
     } else {
       this.consultBtn.current.style.display = 'none'
-      this.nextBtn.current.style.display =  'block'
-      this.nextBtn.current.scrollIntoView({behavior: "smooth"})
+      if( (name === "currentOption" && value === "none") ||
+        (name === "quantity" && value > 0 ) ) {
+          this.nextBtn.current.style.display =  'block'
+      } else {
+        this.nextBtn.current.style.display =  'none'
+      }
+
+      if(name === "currentOption" && this.state.currentOption !== value) {
+        this.setState({
+          quantity: "0"
+        })
+      }
+      //this.nextBtn.current.scrollIntoView({behavior: "smooth"})
     }
     this.setState({
       [name]: value
@@ -206,21 +221,26 @@ export default class OrderPage extends React.Component {
   }
 
   handleNext = event => {
+    let increment = 1;
     if(this.handleValidation()) {
       this.backBtn.current.style.display = 'block'
+      if(this.state.currentStep === 3 &&
+        this.state.currentOption === "none") {
+          increment++;
+      }
       this.setState({
-        currentStep: this.state.currentStep + 1
+        currentStep: this.state.currentStep + increment
       })
     }
 
-    if(this.state.currentStep + 1 >= 4 &&
+    if(this.state.currentStep + 1 >= 3 &&
       (this.state.currentEdge === "" ||
         this.state.currentStone === "" ||
         this.state.canDeliver === false)) {
       this.nextBtn.current.style.display = 'none'
     }
 
-    if(this.state.currentStep + 1 === 7) {
+    if(this.state.currentStep + 1 === 8) {
       this.nextBtn.current.style.display = 'none'
       this.checkOutBtn.current.style.display = 'block'
     }
@@ -229,10 +249,15 @@ export default class OrderPage extends React.Component {
 
   handleBack = event => {
     this.checkOutBtn.current.style.display = 'none'
+    let increment = 1;
 
     if(this.state.currentStep !== 1) {
+      if(this.state.currentStep === 5 &&
+        this.state.currentOption === "none") {
+          increment++;
+      }
       this.setState({
-        currentStep: this.state.currentStep - 1
+        currentStep: this.state.currentStep - increment
       })
     } 
     if(this.state.currentStep - 1 <= 1) {
@@ -275,6 +300,14 @@ export default class OrderPage extends React.Component {
     }
   }
 
+  handleSinkPlacement = event => {
+    console.log(event)
+    this.nextBtn.current.style.display = 'block'
+    this.setState({
+      sinkOffsets: event.items
+    })
+  }
+
   render() {
     const { currentShape } = this.state
 
@@ -296,7 +329,15 @@ export default class OrderPage extends React.Component {
         <Options
           currentStep={this.state.currentStep}
           currentOption={this.state.currentOption}
+          quantity={this.state.quantity}
           onChange={this.handleOptionsChange}
+          />
+        
+        <SinkPlacement
+          currentStep={this.state.currentStep}
+          quantity={this.state.quantity}
+          items={this.state.sinkOffsets}
+          onChange={this.handleSinkPlacement}
           />
 
         <Edges
@@ -323,6 +364,8 @@ export default class OrderPage extends React.Component {
             edge={this.state.currentEdge}
             stone={this.state.currentStone}
             options={this.state.currentOption}
+            sinkOffsets={this.state.sinkOffsets}
+            quantity={this.state.quantity}
             deliveryOption={this.state.deliveryOption}
             onSuccess={this.handleSuccess}
             />

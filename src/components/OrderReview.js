@@ -29,7 +29,7 @@ class OrderReview extends React.Component {
   }
 
   componentDidUpdate() {
-    if(this.props.currentStep !== 7 || this.state.error) {
+    if(this.props.currentStep !== 8 || this.state.error) {
       return
     }
 
@@ -37,6 +37,8 @@ class OrderReview extends React.Component {
       stone: this.props.stone,
       edge: this.props.edge,
       options: this.props.options,
+      sinkOffsets: this.props.sinkOffsets,
+      quantity: this.props.quantity,
       deliveryOption: this.props.deliveryOption,
       area: this.props.shape.getArea(),
       edgeLength: this.props.shape.getTotalEdgeLength(),
@@ -72,6 +74,7 @@ class OrderReview extends React.Component {
         (this.state.order.edgeLength && this.state.order.edgeLength !== order.edgeLength) ||
         (this.state.order.edge && this.state.order.edge !== order.edge) ||
         (this.state.order.options && this.state.order.options !== order.options) ||
+        (this.state.order.quantity && this.state.order.quantity !== order.quantity) ||
         (this.state.order.backsplashLength && this.state.order.backsplashLength !== order.backsplashLength) ) {
 
       api.createPaymentIntent({
@@ -560,7 +563,7 @@ class OrderReview extends React.Component {
   }
 
   render() {
-    if(this.props.currentStep !== 7) {
+    if(this.props.currentStep !== 8) {
       return null
     }
 
@@ -589,6 +592,8 @@ const InjectedOrderReview = (props) => {
           edge={props.edge}
           stone={props.stone}
           options={props.options} 
+          sinkOffsets={props.sinkOffsets}
+          quantity={props.quantity}
           deliveryOption={props.deliveryOption}
           onSuccess={props.onSuccess}
           />

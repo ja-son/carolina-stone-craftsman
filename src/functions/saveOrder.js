@@ -45,6 +45,8 @@ module.exports.handler = async function(event, context, callback) {
       shape: data.order.shape,
       stone: data.order.stone,
       options: data.order.options,
+      sinkQuantity: data.order.quantity,
+      sinkOffsets: data.order.sinkOffsets,
       metadata: data.metadata,
       iconURIData: data.order.iconURIData,
       deliveryOption: data.order.deliveryOption

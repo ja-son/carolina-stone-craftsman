@@ -16,6 +16,7 @@ class Options extends React.Component {
     const { allFile: nodes } = this.props.data
     const images = nodes.nodes
     let currentOption = this.props.currentOption
+    let quantity = this.props.quantity
 
     return (
       <div>
@@ -46,6 +47,13 @@ class Options extends React.Component {
                                   maxHeight: "225px"
                                 }
                               }} /> 
+                              <div className="select" style={{ visibility: currentOption === image.name ? "visible" : "hidden" }}>
+                                <select name="quantity" onChange={this.props.onChange}>
+                                  <option value={0} selected={currentOption === image.name && quantity === "0"}>Select quantity</option>
+                                  <option value={1} selected={currentOption === image.name && quantity === "1"}>1</option>
+                                  <option value={2} selected={currentOption === image.name && quantity === "2"}>2</option>
+                                </select>
+                              </div>
                           </label>
                         </div>
                         : ""
@@ -85,6 +93,8 @@ class Options extends React.Component {
 }
 
 Options.propTypes = {
+  onChange: PropTypes.func,
+  quantity: PropTypes.number
 }
 
 export default (props) => (
@@ -106,6 +116,6 @@ export default (props) => (
       }
     }
   `}
-  render={(data, count) => <Options data={data} count={count} currentStep={props.currentStep} currentOption={props.currentOption} onChange={props.onChange} />}
+  render={(data, count) => <Options data={data} count={count} currentStep={props.currentStep} currentOption={props.currentOption} quantity={props.quantity} onChange={props.onChange} />}
   />
 )

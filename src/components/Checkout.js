@@ -105,7 +105,7 @@ class Checkout extends React.Component {
   }
 
   render() {
-    if(this.props.currentStep !== 6) {
+    if(this.props.currentStep !== 7) {
       return null
     }
 
