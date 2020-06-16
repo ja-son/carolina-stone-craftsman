@@ -16,7 +16,7 @@ intro:
   blurbs:
     - image: /img/gallery/IMG_2243.JPG
       text: >
-        Granite's natural beauty along with its durability, resistance to heat,
+        Granite's natural beauty along with its durability
         and low maintenance makes it a popular choice of stone. When sealed, 
         granite is more resistant to stains and bacteria than laminte, tile, or
         concrete. Choosing granite counters will save you money over time and
