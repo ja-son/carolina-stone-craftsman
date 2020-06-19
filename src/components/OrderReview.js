@@ -5,6 +5,8 @@ import api from "./api";
 import "./OrderReview.css"
 import 'react-phone-number-input/style.css'
 import PhoneInput from 'react-phone-number-input/input'
+import PreviewCompatibleImage from './PreviewCompatibleImage'
+import Badge from '../../static/img/secure-stripe-payment-logo-300x90.png'
 
 class OrderReview extends React.Component {
   constructor(props) {
@@ -547,12 +549,27 @@ class OrderReview extends React.Component {
 
             {this.state.error && <div className="notification is-danger is-light">{this.state.error}</div>}
 
-            <button
-              className="button is-primary"
-              disabled={this.state.processing || !this.state.clientSecret }
-            >
-              {this.state.processing ? "Processing…" : "Pay"}
-            </button>
+            <div className="columns is-centered is-vcentered">
+              <div className="column">
+              <button
+                className="button is-fullwidth is-primary"
+                disabled={this.state.processing || !this.state.clientSecret }>
+                  {this.state.processing ? "Processing…" : "Pay"}
+              </button>
+              </div>
+              <div className="column">
+                <PreviewCompatibleImage
+                  imageInfo={{
+                    image: Badge,
+                    style: {
+                      maxWidth: "300px",
+                      maxHeight: "90px"
+                    }
+                  }} /> 
+              </div>
+              <div className="column"></div>
+            </div>
+
           </form>
           </div>
         </div>
