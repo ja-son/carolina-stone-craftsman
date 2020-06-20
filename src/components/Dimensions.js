@@ -31,7 +31,7 @@ export default class Dimensions extends React.Component {
               <div className="notification is-info is-light">
                   <strong>How to measure your counter top</strong>
                   <figure className="image is-16by9">
-                  <iframe className="has-ratio" src="https://www.youtube.com/embed/8sLQpMKJoQ8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
+                  <iframe className="has-ratio" src="https://www.youtube.com/embed/kqdV5f9aUH8" frameBorder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowFullScreen></iframe>
                   </figure>
                   <p>
                     Watch this video to learn exactly how to measure the dimensions of your
