@@ -1,6 +1,15 @@
 import React from 'react'
 import Layout from '../../components/Layout'
-
+const injectGA = () => {
+  if (typeof window == 'undefined') {
+    return;
+  }
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    window.dataLayer.push(arguments);
+  }
+  gtag('event', 'conversion', {'send_to': 'AW-945612695/7xKvCPP7jNYBEJfP88ID'});
+}
 export default () => (
   <Layout>
     <section className="hero is-primary">
@@ -18,5 +27,9 @@ export default () => (
           <div className="column"></div>
         </div>
     </section>
+    {/* <!-- Event snippet for Submit lead form conversion page --> */}
+    <script>
+      { injectGA() }
+    </script>
   </Layout>
 )
