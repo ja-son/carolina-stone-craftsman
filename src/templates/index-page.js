@@ -79,13 +79,13 @@ export const IndexPageTemplate = ({
           marginLeft: "20px",
           marginRight: "20px"
         }}>Schedule Consultation</Link> */}
-        <Link className="button is-large is-success"
+        <Link className="button is-large is-danger"
           to="/products/order"
           style={{
             display: "flex",
             marginLeft: "20px",
             marginRight: "20px"
-          }}>Shop Now</Link>
+          }}>Start your design</Link>
         </div>
       </div>
     </div>

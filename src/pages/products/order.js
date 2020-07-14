@@ -385,20 +385,20 @@ export default class OrderPage extends React.Component {
             </div>
             <div className="column">
             <a id="nextBtn" ref={this.nextBtn}
-              className="button is-large is-success" 
+              className="button is-large is-info" 
               style={{
                 display: "none",
                 maxWidth: "331px"
               }}
               onClick={this.handleNext}>Next</a>
             <a id="checkOutBtn" ref={this.checkOutBtn}
-              className="button is-large is-success" 
+              className="button is-large is-info" 
               style={{
                 display: "none",
                 maxWidth: "331px"
               }}
               onClick={this.handleCheckOutClick}>Checkout</a>
-            <Link className="button is-large is-success"
+            <Link className="button is-large is-info"
               ref={this.consultBtn}
               to="/contact">Schedule Consultation</Link>
             </div>

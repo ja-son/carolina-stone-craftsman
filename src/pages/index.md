@@ -1,10 +1,10 @@
 ---
 templateKey: index-page
-title: Take us for granite!
+title: Granite, Marble, & Quartz Countertops 
 keywords: granite coutertops, carolina stone craftsman, kitchen design, chapin granite countertops, columbia granite countertops, lexington granite countertops, newberry granite countertops
 image: /img/home-jumbotron-sm.jpg
 heading: Experienced and Creative Kitchen Designers
-subheading: Look to Carolina Stone Craftsman for all of your residential and commercial countertop needs.
+subheading: Columbia's leader in custom kitchen and bath countertop design, fabrication, and installation.
 phone: 803-408-3456
 mainpitch:
   title: Why Carolina Stone Craftsman
