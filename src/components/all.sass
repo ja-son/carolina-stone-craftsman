@@ -74,6 +74,7 @@ $black: #2b2523
 
 .navbar-item .icon
   color: $primary
+
 // Override for use of svg's from https://simpleicons.org/
 .icon svg
   width: 1.5rem
@@ -136,6 +137,20 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts"
   font-size: 6em
 
 @import "~bulma/bulma.sass"
+
+.page-header
+    box-shadow: 0.5rem 0 0 rgba(72, 199, 116, 0.5), -0.5rem 0 0 rgba(72, 199, 116, 0.5)
+    background-color: rgba(72, 199, 116, 0.5)
+    text-shadow: 2px 2px #333333
+    color: white
+    padding: 1rem
+
+.content h2
+    box-shadow: 0.5rem 0 0 rgba(72, 199, 116, 0.5), -0.5rem 0 0 rgba(72, 199, 116, 0.5)
+    background-color: rgba(72, 199, 116, 0.5)
+    text-shadow: 2px 2px #333333
+    color: white
+    padding: 1rem
 
 // responsiveness
 +tablet-only
