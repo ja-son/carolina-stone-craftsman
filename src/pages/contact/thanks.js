@@ -8,6 +8,7 @@ const injectGA = () => {
   function gtag() {
     window.dataLayer.push(arguments);
   }
+  gtag('config', 'UA-43401338-8', {'page_path': '/contact/thanks/'})
   gtag('event', 'conversion', {'send_to': 'AW-945612695/7xKvCPP7jNYBEJfP88ID'});
 }
 export default () => (
