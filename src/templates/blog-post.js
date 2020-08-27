@@ -58,7 +58,7 @@ const BlogPost = ({ data }) => {
   const { markdownRemark: post } = data
 
   return (
-    <Layout>
+    <Layout title={post.frontmatter.title} description={post.frontmatter.description}>
       <BlogPostTemplate
         content={post.html}
         contentComponent={HTMLContent}

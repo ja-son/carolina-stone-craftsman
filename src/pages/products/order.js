@@ -312,7 +312,7 @@ export default class OrderPage extends React.Component {
     const { currentShape } = this.state
 
     return (
-      <Layout>
+      <Layout title="Order Custom Granite Countertops Online">
         <Shapes 
           currentStep={this.state.currentStep}
           currentShape={this.state.shape}

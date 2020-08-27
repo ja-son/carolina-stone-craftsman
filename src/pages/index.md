@@ -1,6 +1,6 @@
 ---
 templateKey: index-page
-title: Granite, Marble, & Quartz Countertops 
+title: Granite, Marble, & Quartz Countertops | Columbia, SC
 keywords: granite coutertops, carolina stone craftsman, kitchen design, chapin granite countertops, columbia granite countertops, lexington granite countertops, newberry granite countertops
 image: /img/home-jumbotron-sm.jpg
 heading: Experienced and Creative Kitchen Designers

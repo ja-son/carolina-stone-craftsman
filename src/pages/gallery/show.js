@@ -8,7 +8,7 @@ const GalleryPage = ({ data }) => {
   const fullSize = data.images.edges.map((edge) => edge.node.full.fluid.src)
   const thumbs = data.images.edges.map((edge) => edge.node.thumb.fluid)
   return (
-    <Layout>
+    <Layout title="Granite, Marble, Quartz Countertops Gallery | Columbia, SC">
       <div className="content">
         <div
               className="full-width-image-container margin-top-0"
