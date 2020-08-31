@@ -159,7 +159,7 @@ const IndexPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
-    <Layout title={frontmatter.title} description={frontmatter.description}>
+    <Layout title={frontmatter.title} description={frontmatter.meta_description}>
       <IndexPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
@@ -203,6 +203,7 @@ export const pageQuery = graphql`
           description
         }
         description
+        meta_description
         intro {
           blurbs {
             image {

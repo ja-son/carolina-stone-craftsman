@@ -2,6 +2,8 @@
 templateKey: index-page
 title: Granite, Marble, & Quartz Countertops | Columbia, SC
 keywords: granite coutertops, carolina stone craftsman, kitchen design, chapin granite countertops, columbia granite countertops, lexington granite countertops, newberry granite countertops
+meta-description: >
+  Looking for the best deal on granite, marble, or quartz countertops? Carolina Stone Craftsman provides the highest quality kitchen or bath counters at affordable prices in Columbia.
 image: /img/home-jumbotron-sm.jpg
 heading: Experienced and Creative Kitchen Designers
 subheading: Columbia's leader in custom kitchen and bath countertop design, fabrication, and installation.
@@ -10,7 +12,7 @@ mainpitch:
   title: Why Carolina Stone Craftsman
   description: >
     Our experienced stone craftsmen are highly trained and work in teams to guide you through the process from design, fabrication, and installation.  Whether it be for new construction or a remodel we provide the latest techniques and professional staff to make your project as stress-free as possible.
-description: >-
+description: >
   The gentleman who brought you high quality stone work at Ethen Del Priore Stonecraftsman LLC, has purchased the business formerly known as Rock Ye Tops and reopened as Carolina Stone Craftsman. Ethen Del Priore Stonecraftsman and Rock Ye Tops have serviced the greater Columbia area and the state of South Carolina for over 20 years. Although the name has changed, the core values and quality workmanship remain.  At Carolina Stone Craftsman our team of dedicated professionals strive to provide high quality work with the personal attention that you expect from a family owned and operated business.
 intro:
   blurbs:
