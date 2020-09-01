@@ -11,13 +11,13 @@ description: Homeowners upgrading or building bathrooms and kitchens often face
   we are delighted to take you through granite vs quartz countertops pros and
   cons and help you make an informed decision.
 featuredpost: false
-featuredimage: /img/gallery/giallo-ornamental-counter-1.png
+featuredimage: /img/gallery/giallo-ornamental-counter-1.jpg
 tags:
   - granite
   - quartz
   - countertops
 ---
-![kitchen countertops](/img/gallery/giallo-ornamental-counter-1.png)
+![kitchen countertops](/img/gallery/giallo-ornamental-counter-1.jpg)
 
 \
 \

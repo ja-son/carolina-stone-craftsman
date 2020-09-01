@@ -3,6 +3,7 @@ import Gallery from '@browniebroke/gatsby-image-gallery'
 import '@browniebroke/gatsby-image-gallery/dist/style.css'
 import Layout from '../../components/Layout'
 import image from '../../../static/img/gallery/home-jumbotron3.jpg'
+import { graphql } from 'gatsby'
 
 const GalleryPage = ({ data }) => {
   const fullSize = data.images.edges.map((edge) => edge.node.full.fluid.src)
