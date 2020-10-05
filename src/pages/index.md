@@ -4,7 +4,7 @@ title: Granite, Marble, & Quartz Countertops | Columbia, SC
 keywords: granite coutertops, carolina stone craftsman, kitchen design, chapin granite countertops, columbia granite countertops, lexington granite countertops, newberry granite countertops
 meta-description: >
   Looking for the best deal on granite, marble, or quartz countertops? Carolina Stone Craftsman provides the highest quality kitchen or bath counters at affordable prices in Columbia.
-image: /img/home-jumbotron-sm.jpg
+image: /img/home-jumbotron-bw.jpg
 heading: Experienced and Creative Kitchen Designers
 subheading: Columbia's leader in custom kitchen and bath countertop design, fabrication, and installation.
 phone: 803-408-3456

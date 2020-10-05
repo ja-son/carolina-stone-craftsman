@@ -91,7 +91,7 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
       options: {
         output: '/sitemap.xml',
-        exclude: ['/order/*', '/admin/*'],
+        exclude: ['/order/*', '/admin/*', '/contact/thanks/*'],
         query: `
           {
             site {

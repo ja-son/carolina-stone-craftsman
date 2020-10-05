@@ -7,7 +7,7 @@ import Features from '../components/Features'
 import Testimonials from '../components/Testimonials'
 import Contact from '../components/Contact'
 
-export const IndexPageTemplate = ({
+export const LandingPageTemplate = ({
   image,
   title,
   heading,
@@ -44,7 +44,7 @@ export const IndexPageTemplate = ({
             //  'rgb(255, 68, 0) 0.5rem 0px 0px, rgb(255, 68, 0) -0.5rem 0px 0px',
             textShadow: `2px 2px #333333`,
             backgroundColor: 'rgb(142, 142, 142, 0.5)',
-            color: 'white',
+            color: '#03c2fc',
             lineHeight: '1',
             padding: '0.25em',
           }}
@@ -72,20 +72,22 @@ export const IndexPageTemplate = ({
           alignItems: "flex-end",
           flexWrap: "wrap"
         }}>
-        <Link className="button is-large is-success"
-        to="#quote"
+        {/* <Link className="button is-large"
+        to="/contact"
         style={{
           display: "flex",
           marginLeft: "20px",
           marginRight: "20px"
-        }}>Free Estimate</Link>
-        {/* <Link className="button is-large is-success"
-          to="/products/order"
+        }}>Schedule Consultation</Link> */}
+        <Link className="button is-large"
+          to="#quote"
           style={{
             display: "flex",
             marginLeft: "20px",
-            marginRight: "20px"
-          }}>Shop Now</Link> */}
+            marginRight: "20px",
+            backgroundColor: "#03c2fc",
+            color: "white"
+          }}>Quote</Link>
         </div>
       </div>
     </div>
@@ -145,7 +147,7 @@ export const IndexPageTemplate = ({
   </div>
 )
 
-IndexPageTemplate.propTypes = {
+LandingPageTemplate.propTypes = {
   image: PropTypes.oneOfType([PropTypes.object, PropTypes.string]),
   title: PropTypes.string,
   heading: PropTypes.string,
@@ -158,12 +160,12 @@ IndexPageTemplate.propTypes = {
   testimonials: PropTypes.array,
 }
 
-const IndexPage = ({ data }) => {
+const LandingPage = ({ data }) => {
   const { frontmatter } = data.markdownRemark
 
   return (
     <Layout title={frontmatter.title} description={frontmatter.meta_description}>
-      <IndexPageTemplate
+      <LandingPageTemplate
         image={frontmatter.image}
         title={frontmatter.title}
         heading={frontmatter.heading}
@@ -177,7 +179,7 @@ const IndexPage = ({ data }) => {
   )
 }
 
-IndexPage.propTypes = {
+LandingPage.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.shape({
       frontmatter: PropTypes.object,
@@ -185,11 +187,11 @@ IndexPage.propTypes = {
   }),
 }
 
-export default IndexPage
+export default LandingPage
 
 export const a = graphql`
-  query IndexPageTemplate {
-    markdownRemark(frontmatter: { templateKey: { eq: "index-page" } }) {
+  query LandingPageTemplate {
+    markdownRemark(frontmatter: { templateKey: { eq: "landing-page" } }) {
       frontmatter {
         title
         image {
