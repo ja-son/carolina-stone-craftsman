@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
 import Layout from '../../components/Layout'
-import Photo from '../../../static/img/gallery/IMG_2253.jpg'
+import Photo from '../../../static/img/gallery/IMG_2253.JPG'
 const injectGA = () => {
   if (typeof window == 'undefined') {
     return;
