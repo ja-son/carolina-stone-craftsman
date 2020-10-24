@@ -11,6 +11,7 @@ $secondary: #03c2fc //#48c774
 $success: #03c2fc
 $body-color: #333
 $black: #2b2523
+$box-shadow: rgba(3, 194, 252, 0.5)
 
 .navbar .navbar-menu
   box-shadow:none !important
@@ -120,7 +121,7 @@ $menu-label-color: $white-ter
 
 // blog roll
 .blog-list-item.is-featured
-  background-color: #a9c7bc;
+  background-color: $box-shadow;
 .blog-list-item header
   display: flex;
   margin-bottom: 1em;
@@ -140,15 +141,15 @@ $fa-font-path: "~@fortawesome/fontawesome-free/webfonts"
 @import "~bulma/bulma.sass"
 
 .page-header
-    box-shadow: 0.5rem 0 0 rgba(72, 199, 116, 0.5), -0.5rem 0 0 rgba(72, 199, 116, 0.5)
-    background-color: rgba(72, 199, 116, 0.5)
+    box-shadow: 0.5rem 0 0 $box-shadow, -0.5rem 0 0 $box-shadow
+    background-color: $box-shadow
     text-shadow: 2px 2px #333333
     color: white
     padding: 1rem
 
 .content h2
-    box-shadow: 0.5rem 0 0 rgba(72, 199, 116, 0.5), -0.5rem 0 0 rgba(72, 199, 116, 0.5)
-    background-color: rgba(72, 199, 116, 0.5)
+    box-shadow: 0.5rem 0 0 $box-shadow, -0.5rem 0 0 $box-shadow
+    background-color: $box-shadow
     text-shadow: 2px 2px #333333
     color: white
     padding: 1rem

@@ -30,7 +30,7 @@ export const LandingPageTemplate = ({
       <div
         style={{
           display: 'flex',
-          height: '250px',
+
           lineHeight: '1',
           justifyContent: 'space-around',
           alignItems: 'left',
@@ -68,26 +68,19 @@ export const LandingPageTemplate = ({
         <div style={{
           display: "flex",
           height: "100px",
-          justifyContent: "flex-end",
+          justifyContent: "center",
           alignItems: "flex-end",
           flexWrap: "wrap"
         }}>
-        {/* <Link className="button is-large"
-        to="/contact"
-        style={{
-          display: "flex",
-          marginLeft: "20px",
-          marginRight: "20px"
-        }}>Schedule Consultation</Link> */}
         <Link className="button is-large"
-          to="#quote"
+          to="/products/order"
           style={{
             display: "flex",
             marginLeft: "20px",
             marginRight: "20px",
             backgroundColor: "#03c2fc",
             color: "white"
-          }}>Quote</Link>
+          }}>Start Your Design</Link>
         </div>
       </div>
     </div>
@@ -100,10 +93,10 @@ export const LandingPageTemplate = ({
               <div className="content">
                 <div className="content">
                   <div className="tile">
-                    <h1 className="title">{mainpitch.title}</h1>
+                    <h1 className="title has-text-success">{mainpitch.title}</h1>
                   </div>
                   <div className="tile">
-                    <h3 className="subtitle">{mainpitch.description}</h3>
+                    <h3 className="subtitle has-text-grey-light">{mainpitch.description}</h3>
                   </div>
                 </div>
                 <div className="columns">
@@ -117,7 +110,6 @@ export const LandingPageTemplate = ({
                 <Features gridItems={intro.blurbs} />
                 <Testimonials testimonials={testimonials} />
                 <div id="quote"></div>
-                <Contact />
 
                 {/* <div className="columns">
                   <div className="column is-12 has-text-centered">

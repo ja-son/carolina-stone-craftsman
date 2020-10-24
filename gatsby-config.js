@@ -123,6 +123,12 @@ module.exports = {
       options: { paths: ['/products/shape-*'] }
     },
     {
+      resolve: 'gatsby-plugin-tawk',
+      options: {
+        tawkId: '5f920b1417015e2aea6d9104'
+      }
+    },
+    {
       resolve: 'gatsby-plugin-netlify-cms',
       options: {
         modulePath: `${__dirname}/src/cms/cms.js`,
