@@ -14,6 +14,7 @@ const TemplateWrapper = ({ title, description, children }) => {
       <Helmet>
         <html lang="en" />
         <title>{title != null ? title : siteMetadata.title}</title>
+        <meta name="referrer" content="no-referrer-when-downgrade" />
         <meta name="description" content={description != null ? description : siteMetadata.description} />
         <link
           rel="apple-touch-icon"
