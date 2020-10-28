@@ -60,8 +60,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-google-places',
       options: {
-        placeIds: ["ChIJj6ojW9yD-IgRPBPI6fec5NM"],
-        apiKey: "AIzaSyCpzuLkZTzFLnqdk_iFv8xdlFIj6AAhmuo"
+        placeIds: [process.env.GOOGLE_PLACE_ID],
+        apiKey: process.env.GOOGLE_API_KEY
       }
     },
     'gatsby-plugin-sharp',
