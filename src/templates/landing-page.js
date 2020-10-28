@@ -4,8 +4,7 @@ import { Link, graphql } from 'gatsby'
 
 import Layout from '../components/Layout'
 import Features from '../components/Features'
-import Testimonials from '../components/Testimonials'
-import Contact from '../components/Contact'
+import GoogleReviews from '../components/GoogleReviews'
 
 export const LandingPageTemplate = ({
   image,
@@ -108,7 +107,7 @@ export const LandingPageTemplate = ({
                   </div>
                 </div>
                 <Features gridItems={intro.blurbs} />
-                <Testimonials testimonials={testimonials} />
+                <GoogleReviews />
                 <div id="quote"></div>
 
                 {/* <div className="columns">

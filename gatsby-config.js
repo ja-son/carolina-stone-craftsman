@@ -57,6 +57,13 @@ module.exports = {
         name: 'images',
       },
     },
+    {
+      resolve: 'gatsby-source-google-places',
+      options: {
+        placeIds: ["ChIJj6ojW9yD-IgRPBPI6fec5NM"],
+        apiKey: "AIzaSyCpzuLkZTzFLnqdk_iFv8xdlFIj6AAhmuo"
+      }
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {

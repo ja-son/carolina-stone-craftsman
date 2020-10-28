@@ -6914,6 +6914,15 @@ gatsby-link@^2.4.13:
     "@types/reach__router" "^1.3.3"
     prop-types "^15.7.2"
 
+gatsby-node-helpers@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/gatsby-node-helpers/-/gatsby-node-helpers-0.3.0.tgz#3bdca3b7902a702a5834fef280ad66d51099d57c"
+  integrity sha1-O9yjt5AqcCpYNP7ygK1m1RCZ1Xw=
+  dependencies:
+    json-stringify-safe "^5.0.1"
+    lodash "^4.17.4"
+    p-is-promise "^1.1.0"
+
 gatsby-page-utils@^0.2.23:
   version "0.2.23"
   resolved "https://registry.yarnpkg.com/gatsby-page-utils/-/gatsby-page-utils-0.2.23.tgz#8216adb75a4f7143f6a945f2efff05c9458bf9a2"
@@ -7213,6 +7222,15 @@ gatsby-source-filesystem@^2.3.11:
     read-chunk "^3.2.0"
     valid-url "^1.0.9"
     xstate "^4.11.0"
+
+gatsby-source-google-places@^0.0.6:
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/gatsby-source-google-places/-/gatsby-source-google-places-0.0.6.tgz#d52b6670ce1f565d319989ee4f8d1eb602f9987e"
+  integrity sha512-BC+oCMIEfb4Bt28ItuTok2gEZCt3Aq8+e4oa0/jhvTolTESff7lBaIusulv/ToawYpFSIYvDy/9f18OIrLh2Dw==
+  dependencies:
+    axios "^0.19.0"
+    gatsby-node-helpers "^0.3.0"
+    querystring "^0.2.0"
 
 gatsby-telemetry@^1.3.30:
   version "1.3.30"
