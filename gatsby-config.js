@@ -1,10 +1,15 @@
+require("dotenv").config({
+  path: `.env.${process.env.NODE_ENV}`,
+})
 const { createProxyMiddleware } = require("http-proxy-middleware")
 // env setting for netlify preview
 const {
   NODE_ENV,
   URL: NETLIFY_SITE_URL = 'https://carolinastonecraftsman.netlify.app',
   DEPLOY_PRIME_URL: NETLIFY_DEPLOY_URL = NETLIFY_SITE_URL,
-  CONTEXT: NETLIFY_ENV = NODE_ENV
+  CONTEXT: NETLIFY_ENV = NODE_ENV,
+  GOOGLE_API_KEY,
+  GOOGLE_PLACE_ID
 } = process.env;
 
 const isNetlifyProduction = NETLIFY_ENV === 'production';
@@ -60,8 +65,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-google-places',
       options: {
-        placeIds: [process.env.GOOGLE_PLACE_ID],
-        apiKey: process.env.GOOGLE_API_KEY
+        placeIds: [GOOGLE_PLACE_ID],
+        apiKey: GOOGLE_API_KEY
       }
     },
     'gatsby-plugin-sharp',
