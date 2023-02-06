@@ -55,6 +55,11 @@ const Footer = class extends React.Component {
                         Quote
                       </Link>
                     </li>
+                    <li>
+                      <Link className="navbar-item" to="/privacy">
+                        Privacy
+                      </Link>
+                    </li>
                   </ul>
                 </section>
               </div>
