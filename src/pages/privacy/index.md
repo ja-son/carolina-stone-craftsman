@@ -2,7 +2,7 @@
 templateKey: 'about-page'
 path: /privacy
 title: Privacy Policy
-content: >-
+html: >-
   Privacy Policy for Carolina Stone Craftsman, LLC
   At Carolina Stone Craftsman, accessible at https://www.carolinastonecraftsman.com, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Carolina Stone Craftsman and how we use it.
 
