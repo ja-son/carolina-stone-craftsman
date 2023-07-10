@@ -11,9 +11,13 @@ const Footer = class extends React.Component {
   render() {
     return (
       <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
-          2010 Chapin Rd, Chapin SC 29036
-        </div>
+        {/* <div className="content has-text-centered">
+          <img
+            src={logo}
+            alt="Kaldi"
+            style={{ width: '14em', height: '10em' }}
+          />
+        </div> */}
         <div className="content has-text-centered has-background-black has-text-white-ter">
           <div className="container has-background-black has-text-white-ter">
             <div className="columns">
@@ -60,6 +64,9 @@ const Footer = class extends React.Component {
                 </section>
               </div>
               <div className="column is-4 social">
+                <section>
+                2010 Chapin Rd, Chapin SC 29036
+                </section>
                 <a title="facebook" href="https://www.facebook.com/Carolina-Stone-Craftsman-LLC-215422579329700/">
                   <img
                     src={facebook}
