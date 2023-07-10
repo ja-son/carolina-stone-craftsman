@@ -65,7 +65,8 @@ const Footer = class extends React.Component {
               </div>
               <div className="column is-4 social">
                 <section>
-                2010 Chapin Rd, Chapin SC 29036
+                  <p>2010 Chapin Rd, Chapin SC 29036</p>
+                  <br/>
                 </section>
                 <a title="facebook" href="https://www.facebook.com/Carolina-Stone-Craftsman-LLC-215422579329700/">
                   <img
